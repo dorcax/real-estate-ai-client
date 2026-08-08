@@ -1,37 +1,38 @@
-import Login from '@/pages/Auth/Login';
-import RoleSelection from '@/pages/Auth/roleSelection';
-import SignUp from '@/pages/Auth/signUp';
-import VerifyOtp from '@/pages/Auth/verifyOtp';
-import Layout from '@/pages/Dashboard/Layout';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AppLayout } from "@/components/layout/AppLayout";
+import Login from "@/pages/Auth/Login";
+import RoleSelection from "@/pages/Auth/roleSelection";
+import SignUp from "@/pages/Auth/signUp";
+import VerifyOtp from "@/pages/Auth/verifyOtp";
+import Overview from "@/pages/Dashboard/overview";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RoleSelection/>
+    element: <RoleSelection />,
   },
   {
     path: "/sign-up",
-    element: <SignUp/>
+    element: <SignUp />,
   },
   {
     path: "/sign-in",
-    element: <Login/>
+    element: <Login />,
   },
   {
     path: "/verify-otp",
-    element: <VerifyOtp/>
+    element: <VerifyOtp />,
   },
   {
-    path: "/layout",
-    element: <Layout/>,
-    children:[
+    path: "/dashboard",
+    element: <AppLayout />,
+    children: [
       {
-
-      }
-    ]
+        index: true,
+        element: <Overview />,
+      },
+    ],
   },
-  
 ]);
 
 export const AppRouter = () => {
