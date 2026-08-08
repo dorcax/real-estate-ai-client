@@ -6,8 +6,8 @@ const OverviewCard = () => {
       {dashboardStats.map((stats) => {
         const Icon = stats.icon;
 
-        return (
-          <div key={stats.title} className="rounded-xl shadow-md p-4 space-y-2">
+        return ( 
+          <div key={stats.title} className="rounded-xl border-t-blue-400 border-2  shadow-md p-4 space-y-2">
             <div className="w-8 h-8  rounded-md flex items-center justify-center border mb-3">
               <Icon className="h-6 w-10 " />
             </div>
