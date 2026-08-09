@@ -50,7 +50,7 @@ const AppHeader = () => {
             <Bell size={20} />
             <span className="absolute top-2 right-2 size-2 bg-red-500 border-2 border-white rounded-full"></span>
           </button>
-          <button className="bg-primary text-white p-2 sm:px-4 sm:py-2 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+          <button className="bg-[#6366F1] text-white p-2 sm:px-4 sm:py-2 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
             <Plus size={16} />
             <span className="hidden sm:inline">Create New Property</span>
           </button>

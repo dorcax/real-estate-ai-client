@@ -27,7 +27,7 @@ export function NavMain({
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
               tooltip="Quick Create"
-              className="min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
+              className="min-w-8 bg-[#6366F1] text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
             >
               <IconCirclePlusFilled />
               <span>Quick Create</span>
@@ -45,7 +45,7 @@ export function NavMain({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title} className="capitalize">
+              <SidebarMenuButton tooltip={item.title} className="capitalize text-xs font-normal">
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
               </SidebarMenuButton>
