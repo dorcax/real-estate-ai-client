@@ -34,17 +34,17 @@ avatar: "/avatars/shadcn.jpg",
 navMain:[
   {
     title: "Overview",
-    url: "#",
+    url:"/dashboard",
     icon: IconDashboard,
   },
   {
     title: "Analytics",
-    url: "#",
+    url: "/dashboard/analytics",
     icon: IconChartBar,
   },
   {
     title: "Listings",
-    url: "#",
+    url: "/dashboard/property-listing",
     icon: IconFolder,
   },
   {

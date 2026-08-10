@@ -1,3 +1,4 @@
+import type { Property } from "@/components/property/data-column";
 import {
   IconBuildingEstate,
   IconMessages,
@@ -73,3 +74,186 @@ export const todaysActivity: ActivityItem[] = [
   { label: "Active Agents", value: 2, icon: Headset },
   { label: "Available Listings", value: 3, icon: Home },
 ];
+
+
+
+  export const properties = [
+  {
+    id: 1,
+    featured: true,
+    status: "Available",
+    title: "3 House In One Row, At Mountain Jill",
+    location: "New York, Gym location",
+    price: "$6,000",
+    billingPeriod: null,
+    image:
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+    stats: {
+      firstIconCount: 4,
+      secondIconCount: 7,
+    },
+  },
+  {
+    id: 2,
+    featured: true,
+    status: "Available",
+    title: "7 Bedrooms Apartment House At Mountain",
+    location: "Real Estate Ave, Real Estate AI",
+    price: "$2,000",
+    billingPeriod: "mo",
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+    stats: {
+      firstIconCount: 5,
+      secondIconCount: 5,
+    },
+  },
+  {
+    id: 3,
+    featured: true,
+    status: "Available",
+    title: "16 Bedrooms Home New",
+    location: "Real Estate Ave, Real Estate Town",
+    price: "$50,000",
+    billingPeriod: null,
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    stats: {
+      firstIconCount: 9,
+      secondIconCount: 9,
+    },
+  },
+  {
+    id: 4,
+    featured: true,
+    status: "Pending",
+    title: "3 Bed Rooms High Mountain Property",
+    location: "Real Estate Ave, Real Estate Town",
+    price: "$4,500",
+    billingPeriod: "mo",
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+    stats: {
+      firstIconCount: 8,
+      secondIconCount: 8,
+    },
+  },
+];
+
+
+export const recentViewings = [
+  {
+    id: 1,
+    initials: "US",
+    name: "User One",
+    phone: "0000000000",
+    budget: "Budget: 5000000",
+    date: "Jul 14, 2026",
+    time: "7:31 PM",
+    status: "pending",
+  },
+  {
+    id: 2,
+    initials: "CA",
+    name: "David Hanson",
+    phone: "0000000000",
+    budget: "Budget: 5000000",
+    date: "Jul 14, 2026",
+    time: "5:00 PM",
+    status: "cancelled",
+  },
+  {
+    id: 3,
+    initials: "US",
+    name: "User Three",
+    phone: "23456789",
+    budget: "Budget: Enough",
+    date: "Jul 14, 2026",
+    time: "5:30 PM",
+    status: "confirmed",
+  },
+];
+
+
+
+export const propertyStats = [
+  {
+    id: 1,
+    title: "Total Listings",
+    value: 4,
+    color: "text-red-900",
+  },
+  {
+    id: 2,
+    title: "Available",
+    value: 3,
+    color: "text-red-900",
+  },
+  {
+    id: 3,
+    title: "Pending / Active",
+    value: 1,
+    color: "text-orange-500",
+  },
+  {
+    id: 4,
+    title: "Sold / Rented",
+    value: 0,
+    color: "text-violet-600",
+  },
+];
+
+export const propertListing  = [
+  {
+    id: 1,
+    featured: true,
+    title: "3 House In One Row, At Mountain Jill",
+    location: "New York, Gym location",
+    price: "$6,000",
+    status: "Available",
+    type: "Townhouse",
+    bedrooms: 4,
+    bathrooms: 7,
+    area: "Unknown",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: 2,
+    featured: true,
+    title: "7 BedRooms Apartment House At Mountain Hill",
+    location: "Miami Engineer Office, Real Estate Ave",
+    price: "$2,000/mo",
+    status: "Available",
+    type: "Condo",
+    bedrooms: 5,
+    bathrooms: 5,
+    area: "64,325 sqft",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: 3,
+    featured: true,
+    title: "16 BedRooms Home New",
+    location: "Real Estate Ave, Real Estate Town",
+    price: "$50,000",
+    status: "Available",
+    type: "Townhouse",
+    bedrooms: 9,
+    bathrooms: 9,
+    area: "64,477 sqft",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: 4,
+    featured: true,
+    title: "3 Bed Rooms High Mountain Property",
+    location: "Real Estate Ave, Real Estate Town",
+    price: "$4,500/mo",
+    status: "Pending",
+    type: "House",
+    bedrooms: 8,
+    bathrooms: 8,
+    area: "Unknown",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+  },
+]satisfies Property[];

@@ -1,20 +1,19 @@
-import Activity from "@/components/dashboard/Activity";
-import { ConversationTrendChart } from "@/components/dashboard/ChartLine";
-import OverviewCard from "@/components/dashboard/OverviewCard";
+import OverviewAnalytics from "@/pages/Dashboard/OverviewAnalytics";
+import PropertySection from "@/components/overview/MarketPlace";
+import RecentViewings from "@/components/overview/RecentViewing";
+import OverviewCard from "@/components/overview/OverviewCard";
 
 const Overview = () => {
   return (
-   <section>
-   <OverviewCard/>
-   <div className="grid grid-cols-12 gap-4  ">
-    <div className="col-span-8  ">
-      <ConversationTrendChart/> 
-    </div>
-    <div className="col-span-4 ">
-     <Activity/>
-    </div>
-   </div>
-   </section>
+    <main className="space-y-8">
+      <OverviewCard />
+
+      <OverviewAnalytics />
+
+      <PropertySection />
+
+      <RecentViewings />
+    </main>
   );
 };
 

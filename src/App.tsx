@@ -1,12 +1,9 @@
-import { AppRouter } from './routes/AppRoutes'
+import { PopupProvider } from "./context/PopUpContext";
+import { AppRouter } from "./routes/AppRoutes";
 export const App = () => {
   return (
-    <div>
-      <AppRouter/>
-      {/* heello dev dorcas */}
-
-      
-      
-    </div>
-  )
-}
+    <PopupProvider>
+      <AppRouter />
+    </PopupProvider>
+  );
+};

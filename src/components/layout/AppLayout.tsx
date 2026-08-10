@@ -7,14 +7,15 @@ export function AppLayout() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="flex-1 p-2 sm:p-4 flex flex-col overflow-y-auto bg-[#F5F6FA] w-full gap-2">
+      <main className="flex-1 p-2 sm:p-4 flex flex-col overflow-y-auto bg-[#F8FAFC] w-full gap-2">
         <AppHeader />
       <main className="my-6">
           <Outlet />
       </main>
         <footer className="mt-auto py-6 px-10 border-t border-[#e7edf3] text-center">
           <p className="text-sm text-[#4c739a]">
-            © {new Date().getFullYear()} Haven Hotel Management Systems. All
+            © {new Date().getFullYear()} 
+             Estate Call Management Systems. All
             rights reserved.
           </p>
         </footer>

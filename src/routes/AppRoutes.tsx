@@ -3,7 +3,9 @@ import Login from "@/pages/Auth/Login";
 import RoleSelection from "@/pages/Auth/roleSelection";
 import SignUp from "@/pages/Auth/signUp";
 import VerifyOtp from "@/pages/Auth/verifyOtp";
+import { Analytics } from "@/pages/Dashboard/Analytics";
 import Overview from "@/pages/Dashboard/overview";
+import PropertyListing from "@/pages/Dashboard/PropertyListing";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Overview />,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
+      },
+      {
+        path:'property-listing',
+        element: <PropertyListing />,
       },
     ],
   },
