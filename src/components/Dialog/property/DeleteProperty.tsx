@@ -42,7 +42,7 @@ const DeleteProperty = ({ row }: DeletePropertyProps) => {
           </h3>
 
           <p className="text-xs text-gray-600">
-            This action will permanently remove{" "}
+            This action will permanently remove 
             <span className="font-medium">
               {row.title}
             </span>{" "}

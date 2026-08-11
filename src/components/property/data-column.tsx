@@ -1,15 +1,7 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-import { usePopUpContext } from "@/context/PopUpContext";
 import { createColumnHelper } from "@tanstack/react-table";
-import DeleteProperty from "../Dialog/property/DeleteProperty";
 import { features } from "../table/data-table-feature";
 import { Checkbox } from "../ui/checkbox";
+import PropertyActions from "./PropertyAction";
 export type Property = {
   id: number;
   featured: boolean;
@@ -25,7 +17,7 @@ export type Property = {
 };
 
 const columnHelper = createColumnHelper<typeof features, Property>();
- const {openDialog } =usePopUpContext()
+//  const {openDialog } =usePopUpContext()
 export const columns = columnHelper.columns([
   {
     id: "select",
@@ -81,27 +73,39 @@ export const columns = columnHelper.columns([
     ),
   }),
 
+  // columnHelper.display({
+  //   id: "actions",
+  //   header: "Action",
+  //   cell: ({ row }) => {
+  //     // const payment = row.original
+
+  //     return (
+  //       <DropdownMenu>
+  //         <DropdownMenuTrigger>...</DropdownMenuTrigger>
+
+  //         <DropdownMenuContent>
+  //           <DropdownMenuGroup>
+  //             <DropdownMenuItem className="text-xs">Edit</DropdownMenuItem>
+
+  //             <DropdownMenuItem className="text-xs" >View</DropdownMenuItem>
+
+  //             <DropdownMenuItem className="text-xs" >Delete </DropdownMenuItem>
+  //           </DropdownMenuGroup>
+  //         </DropdownMenuContent>
+  //       </DropdownMenu>
+  //     );
+  //   },
+  // }),
+
   columnHelper.display({
-    id: "actions",
-    header: "Action",
-    cell: ({ row }) => {
-      // const payment = row.original
+  id: "actions",
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger>...</DropdownMenuTrigger>
+  header: "Action",
 
-          <DropdownMenuContent>
-            <DropdownMenuGroup>
-              <DropdownMenuItem className="text-xs">Edit</DropdownMenuItem>
-
-              <DropdownMenuItem className="text-xs" onClick={()=>openDialog(()=>(<DeleteProperty row={row.original}/>))} >View</DropdownMenuItem>
-
-              <DropdownMenuItem className="text-xs" onClick={()=>openDialog(()=>(<DeleteProperty row={row.original}/>))}>Delete </DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  }),
+  cell: ({ row }) => (
+    <PropertyActions 
+      property={row.original}
+    />
+  ),
+}),
 ]);
