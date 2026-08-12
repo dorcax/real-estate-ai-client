@@ -7,7 +7,7 @@ import CreateProperty from "../Dialog/property/CreateProperty";
 
 const AppHeader = () => {
   const { pathname } = useLocation();
-  const {openDialog} =usePopUpContext()
+  const { openDialog } = usePopUpContext();
 
   console.log("Pathname", pathname);
 
@@ -19,7 +19,7 @@ const AppHeader = () => {
         <div className="flex items-center gap-2">
           <span
             key={url}
-            className="text-xs text-slate-900 font-medium capitalize"
+            className="text-xs  text-[#dae2fd] font-medium capitalize"
           >
             {segment}
           </span>
@@ -30,10 +30,10 @@ const AppHeader = () => {
   };
 
   return (
-    <header className="h-10 py-2 border-b border-slate-200 flex items-center justify-between">
+    <header className="h-10 py-2 border-b border-b-[#464554] flex items-center justify-between  text-[#dae2fd]">
       <div className="flex items-center gap-2 sm:gap-4">
-        <SidebarTrigger className="text-primary cursor-pointer" />
-        <div className="hidden sm:flex items-center gap-2 text-sm text-slate-500">
+        <SidebarTrigger className=" cursor-pointer " />
+        <div className="hidden sm:flex items-center gap-2 text-sm  ">
           {getBreadcrumb()}
         </div>
       </div>
@@ -44,21 +44,20 @@ const AppHeader = () => {
             size={16}
           />
           <input
-            className="w-full pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20"
+            className="w-full pl-10 pr-4 py-1.5 bg-[#464554] text-[#dae2fd] border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20"
             placeholder="Search..."
             type="text"
           />
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
-          <button className="relative p-2 text-slate-500 hover:bg-slate-100 rounded-lg transition-colors">
+          <button className="relative p-2  hover:bg-slate-100 rounded-lg transition-colors">
             <Bell size={20} />
             <span className="absolute top-2 right-2 size-2 bg-red-500 border-2 border-white rounded-full"></span>
           </button>
-          <button className="bg-[#6366F1] text-white p-2 sm:px-4 sm:py-2 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all"  onClick={() =>
-          openDialog(() => (
-            <CreateProperty />
-          ))
-        }>
+          <button
+            className="bg-[#c0c1ff] text-[#1000A9] p-2 sm:px-4 sm:py-2 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-lg shadow-primary/20 hover:bg-[#222a3d]  hover:text-[#dae2fd] transition-all"
+            onClick={() => openDialog(() => <CreateProperty />)}
+          >
             <Plus size={16} />
 
             <span className="hidden sm:inline">Create New Property</span>

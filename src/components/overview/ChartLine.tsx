@@ -29,21 +29,22 @@ const data = [
 
 export function ConversationTrendChart() {
   return (
-    <Card>
-      <CardHeader className="gap-1">
+    <Card className="bg-[#171f33] border-[#2d3449] text-[#dae2fd]">
+      <CardHeader className="gap-1 ">
         <div className="flex items-center gap-2">
           <div className="flex size-6 items-center justify-center rounded-full bg-rose-100 text-xs font-medium text-rose-600">
             A
           </div>
           <h3 className="text-sm font-semibold">Conversation Trend</h3>
         </div>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-[#dae2fd]
+     ">
           Last 14 days · calls &amp; viewings
         </p>
       </CardHeader>
 
       <CardContent>
-        <div className="h-56 w-full">
+        <div className="h-56 w-full ">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
               <CartesianGrid vertical={false} strokeDasharray="3 3" className="stroke-border" />

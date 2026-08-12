@@ -60,13 +60,13 @@ const CustomInfoDialog = ({
 
       <DialogContent
         className={cn(
-          "sm:max-w-md",
+          "sm:max-w-md bg-[#222a3d] text-[#dae2fd]",
           className
         )}
       >
 
 
-        <DialogHeader>
+        <DialogHeader >
 
 
           {imgUrl && (
@@ -85,7 +85,7 @@ const CustomInfoDialog = ({
 
 
 
-          <DialogTitle className="capitalize text-sm  text-black">
+          <DialogTitle className="capitalize text-sm text-[#dae2fd]">
 
             {title}
 
@@ -108,7 +108,7 @@ const CustomInfoDialog = ({
 
 
 
-        <DialogFooter>
+        {/* <DialogFooter>
 
           {close && (
 
@@ -124,7 +124,7 @@ const CustomInfoDialog = ({
 
           )}
 
-        </DialogFooter>
+        </DialogFooter> */}
 
        
 

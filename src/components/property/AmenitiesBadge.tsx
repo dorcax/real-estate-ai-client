@@ -10,7 +10,6 @@ import {
   Tv,
 } from "lucide-react";
 
-
 const iconMap = {
   "Air Conditioning": Snowflake,
   "Pet Friendly": PawPrint,
@@ -22,20 +21,15 @@ const iconMap = {
   "Sea View": Wifi,
 };
 
-
 type AmenityBadgeProps = {
   amenities: string[];
 };
 
-
 const AmenityBadge = ({ amenities }: AmenityBadgeProps) => {
   return (
     <div className="flex flex-wrap gap-2">
-
       {amenities.map((amenity) => {
-
-        const Icon =
-          iconMap[amenity as keyof typeof iconMap];
+        const Icon = iconMap[amenity as keyof typeof iconMap];
 
         return (
           <div
@@ -44,30 +38,23 @@ const AmenityBadge = ({ amenities }: AmenityBadgeProps) => {
               flex items-center gap-1
               rounded-full
               border
-              bg-white
+              
+              bg-[#2d3449] text-[#dae2fd]  border-[#464554]
               px-3
               py-1
               text-xs
-              text-muted-foreground
+            
               shadow-sm
             "
           >
+            {Icon && <Icon className="size-3.5" />}
 
-            {Icon && (
-              <Icon className="size-3.5" />
-            )}
-
-            <span>
-              {amenity}
-            </span>
-
+            <span>{amenity}</span>
           </div>
         );
       })}
-
     </div>
   );
 };
-
 
 export default AmenityBadge;

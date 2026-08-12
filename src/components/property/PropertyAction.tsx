@@ -13,6 +13,7 @@ import DeleteProperty from "../Dialog/property/DeleteProperty";
 
 import type { Property } from "./data-column";
 import EditProperty from "../Dialog/property/EditProperty";
+import { Link } from "react-router-dom";
 
 
 const PropertyActions = ({ property }: { property: Property }) => {
@@ -25,7 +26,8 @@ const PropertyActions = ({ property }: { property: Property }) => {
 
       <DropdownMenuTrigger >
         <Button
-          variant="ghost"
+          // variant="ghost"
+          className='bg-[#464554] text-[#dae2fd] '
           size="icon"
         >
           <MoreHorizontal className="size-4" />
@@ -33,9 +35,12 @@ const PropertyActions = ({ property }: { property: Property }) => {
       </DropdownMenuTrigger>
 
 
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className='bg-[#464554] text-[#dae2fd] '>
 
 
+        <DropdownMenuItem >
+          <Link to={`/dashboard/view-property/${property.id}`}>View </Link>
+        </DropdownMenuItem>
         <DropdownMenuItem  onClick={()=>openDialog(()=>(<EditProperty property={property}/>))}>
           Edit
         </DropdownMenuItem>

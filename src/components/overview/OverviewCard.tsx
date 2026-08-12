@@ -11,9 +11,11 @@ const OverviewCard = () => {
             key={stats.title}
             className={`
               overflow-hidden
-              relative rounded-xl    border
-    bg-white
-    p-4
+              relative rounded-xl    
+    text-[#dae2fd]
+     bg-[#171f33]
+    px-4
+    py-5
     shadow-md
 
     before:absolute
@@ -26,13 +28,13 @@ const OverviewCard = () => {
     before:bg-linear-to-r ${stats.gradient}
             `}
           >
-            <div className="w-7 h-7 rounded-md flex items-center justify-center border border-[#1E293B] mb-3">
+            <div className="w-7 h-7 rounded-md flex items-center justify-center border border-[#464554] mb-3">
               <Icon className="h-5 w-5 text-[#6366F1]" />
             </div>
 
-            <p className="text-sm font-semibold text-black">{stats.value}</p>
+            <p className="text-sm font-semibold mb-2">{stats.value}</p>
 
-            <h3 className="text-xs text-muted-foreground">{stats.title}</h3>
+            <h3 className="text-xs ">{stats.title}</h3>
           </div>
         );
       })}

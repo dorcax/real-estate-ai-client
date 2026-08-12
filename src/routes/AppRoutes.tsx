@@ -1,4 +1,5 @@
 import { AppLayout } from "@/components/layout/AppLayout";
+import ViewProperty from "@/components/property/ViewProperty";
 import Login from "@/pages/Auth/Login";
 import RoleSelection from "@/pages/Auth/roleSelection";
 import SignUp from "@/pages/Auth/signUp";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path:'property-listing',
         element: <PropertyListing />,
+      },
+      {
+        path:'view-property/:id',
+        element: <ViewProperty />,
       },
     ],
   },

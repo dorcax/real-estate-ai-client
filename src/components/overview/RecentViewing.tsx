@@ -4,20 +4,20 @@ import { recentViewings } from "@/constants/data";
 
 const RecentViewings = () => {
   return (
-    <div className="rounded-xl bg-white p-5 shadow-sm border">
+    <div className="rounded-xl  p-5 shadow-sm text-[#dae2fd] bg-[#171f33]">
 
       <div className="flex items-center justify-between mb-5">
 
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-full bg-[#6366F1] flex items-center justify-center">
-            <Calendar className="size-4 text-white " />
+          <div className="h-9 w-9 rounded-full bg-[#464554] text-[#dae2fd] flex items-center justify-center">
+            <Calendar className="size-4 " />
           </div>
 
           <div>
             <h2 className="font-semibold text-sm">
               Recent Viewings
             </h2>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs ">
               Latest property inspections
             </p>
           </div>
@@ -27,7 +27,7 @@ const RecentViewings = () => {
         <Button
           variant="outline"
           size="sm"
-          className="rounded-full text-xs gap-2"
+          className="rounded-full text-xs gap-2 bg-[#c0c1ff] text-[#1000A9]"
         >
           View All
           <ArrowRight className="size-3" />
@@ -43,13 +43,13 @@ const RecentViewings = () => {
 
           <div
             key={viewing.id}
-            className="flex items-center justify-between border-b pb-4 last:border-none"
+            className="flex items-center justify-between border-b border-b-[#464554] pb-4 last:border-none"
           >
 
             {/* User */}
             <div className="flex items-center gap-3">
 
-              <div className="h-10 w-10 rounded-full bg-red-900 text-white flex items-center justify-center text-xs font-medium">
+              <div className="h-10 w-10 rounded-full bg-[#464554] text-[#dae2fd] flex items-center justify-center text-xs font-medium">
                 {viewing.initials}
               </div>
 
@@ -59,11 +59,11 @@ const RecentViewings = () => {
                   {viewing.name}
                 </h3>
 
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs ">
                   {viewing.phone}
                 </p>
 
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs">
                   {viewing.budget}
                 </p>
               </div>
@@ -72,11 +72,11 @@ const RecentViewings = () => {
 
             <div className="text-right">
 
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs ">
                 {viewing.date}
               </p>
 
-              <p className="text-xs text-muted-foreground mb-2">
+              <p className="text-xs mb-2">
                 {viewing.time}
               </p>
 
@@ -86,7 +86,7 @@ const RecentViewings = () => {
                   inline-flex items-center gap-1
                   rounded-full px-3 py-1
                   text-[11px]
-                  bg-gray-100
+                  bg-[#c0c1ff] text-[#1000A9]
                   capitalize
                 `}
               >

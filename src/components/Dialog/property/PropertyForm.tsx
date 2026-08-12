@@ -1,5 +1,3 @@
-
-
 import { useForm, Controller } from "react-hook-form";
 
 import CustomInfoDialog from "@/common/CustomInfoDialog";
@@ -70,24 +68,44 @@ overflow
 [&::-webkit-scrollbar]:hidden
 "
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="">
         <FieldGroup>
           <Field>
-            <FieldLabel className={labelStyle}>Name</FieldLabel>
+            <FieldLabel className="text-[#dae2fd]">Name</FieldLabel>
 
-            <Input {...register("title")} placeholder="Property name" />
+            <Input
+              {...register("title")}
+              placeholder="Property name"
+              className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+            />
           </Field>
 
           <div className="grid grid-cols-2 gap-2">
             <Field>
-              <FieldLabel className={labelStyle}>Property Type</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">Property Type</FieldLabel>
 
               <Controller
                 name="propertyType"
                 control={control}
                 render={({ field }) => (
                   <Select value={field.value} onValueChange={field.onChange}>
-                    <SelectTrigger>
+                    <SelectTrigger
+                      className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+                    >
                       <SelectValue placeholder="Type" />
                     </SelectTrigger>
 
@@ -104,14 +122,23 @@ overflow
             </Field>
 
             <Field>
-              <FieldLabel className={labelStyle}>Listing Type</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">Listing Type</FieldLabel>
 
               <Controller
                 name="propertyPurpose"
                 control={control}
                 render={({ field }) => (
                   <Select value={field.value} onValueChange={field.onChange}>
-                    <SelectTrigger>
+                    <SelectTrigger
+                      className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+                    >
                       <SelectValue placeholder="Purpose" />
                     </SelectTrigger>
 
@@ -129,51 +156,107 @@ overflow
           </div>
 
           <Field>
-            <FieldLabel className={labelStyle}>Street Address</FieldLabel>
+            <FieldLabel className="text-[#dae2fd]">Street Address</FieldLabel>
 
-            <Input {...register("address")} />
+            <Input
+              {...register("address")}
+              className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+            />
           </Field>
 
           <div className="grid grid-cols-3 gap-2">
             <Field>
-              <FieldLabel className={labelStyle}>City</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">City</FieldLabel>
 
-              <Input {...register("city")} />
+              <Input
+                {...register("city")}
+                className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+              />
             </Field>
 
             <Field>
-              <FieldLabel className={labelStyle}>State</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">State</FieldLabel>
 
-              <Input {...register("state")} />
+              <Input
+                {...register("state")}
+                className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+              />
             </Field>
 
             <Field>
-              <FieldLabel className={labelStyle}>Zip Code</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">Zip Code</FieldLabel>
 
-              <Input {...register("postalCode")} />
+              <Input
+                {...register("postalCode")}
+                className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+              />
             </Field>
           </div>
 
           <div className="grid grid-cols-2 gap-2">
             <Field>
-              <FieldLabel className={labelStyle}>Price</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">Price</FieldLabel>
 
               <Input
                 type="number"
                 {...register("price", {
                   valueAsNumber: true,
                 })}
+                className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
               />
             </Field>
 
             <Field>
-              <FieldLabel className={labelStyle}>Building Size</FieldLabel>
+              <FieldLabel className="text-[#dae2fd]">Building Size</FieldLabel>
 
               <Input
                 type="number"
                 {...register("buildingSize", {
                   valueAsNumber: true,
                 })}
+                className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
               />
             </Field>
           </div>
@@ -182,13 +265,21 @@ overflow
             {["bedrooms", "bathrooms", "toilets", "parkingSpace"].map(
               (item) => (
                 <Field key={item}>
-                  <FieldLabel className={labelStyle}>{item}</FieldLabel>
+                  <FieldLabel className="text-[#dae2fd]">{item}</FieldLabel>
 
                   <Input
                     type="number"
                     {...register(item as keyof PropertyFormValues, {
                       valueAsNumber: true,
                     })}
+                    className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
                   />
                 </Field>
               ),
@@ -196,13 +287,23 @@ overflow
           </div>
 
           <Field>
-            <FieldLabel className={labelStyle}>Description</FieldLabel>
+            <FieldLabel className="text-[#dae2fd]">Description</FieldLabel>
 
-            <Input {...register("description")} />
+            <Input
+              {...register("description")}
+              className="
+    bg-[#171f33]
+    border-[#464554]
+    text-[#dae2fd]
+    placeholder:text-[#c7c4d7]
+    focus-visible:border-[#c0c1ff]
+    focus-visible:ring-[#c0c1ff]/20
+  "
+            />
           </Field>
 
           <Field>
-            <FieldLabel className={labelStyle}>Amenities</FieldLabel>
+            <FieldLabel className="text-[#dae2fd]">Amenities</FieldLabel>
 
             <AmenityBadge
               amenities={[
@@ -234,7 +335,7 @@ overflow
                 )}
               />
 
-              <Label className={labelStyle}>Active (visible to AI)</Label>
+              <Label className="text-[#dae2fd]">Active (visible to AI)</Label>
             </div>
 
             <div className="flex gap-2 items-center">
@@ -249,15 +350,14 @@ overflow
                 )}
               />
 
-              <Label className={labelStyle}>Featured Listing</Label>
+              <Label className="text-[#dae2fd]">Featured Listing</Label>
             </div>
           </div>
 
           <Button
             type="submit"
             className="
-w-full
-bg-[#6366F1]
+w-full bg-[#c0c1ff] text-[#1000A9] hover:bg-[#222a3d]  hover:text-[#dae2fd] border 
 "
           >
             {loading

@@ -6,7 +6,7 @@ import {
   IconChartLine,
   IconPhoneCall,
 } from "@tabler/icons-react";
-import { MessageCircle, Zap, PhoneCall, Headset, Home} from "lucide-react";
+import { MessageCircle, Zap, PhoneCall, Headset, Home } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 export const dashboardStats = [
   {
@@ -59,8 +59,6 @@ export const gradientMap = {
   "Average Call Duration": "from-[#4FACFE] to-[#00F2FE]",
 };
 
-
-
 interface ActivityItem {
   label: string;
   value: number;
@@ -76,70 +74,107 @@ export const todaysActivity: ActivityItem[] = [
 ];
 
 
-
-  export const properties = [
+export const properties = [
   {
     id: 1,
+
     featured: true,
+
     status: "Available",
+
     title: "3 House In One Row, At Mountain Jill",
+
     location: "New York, Gym location",
+
     price: "$6,000",
+
     billingPeriod: null,
+
     image:
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+
     stats: {
       firstIconCount: 4,
+
       secondIconCount: 7,
     },
   },
+
   {
     id: 2,
+
     featured: true,
+
     status: "Available",
+
     title: "7 Bedrooms Apartment House At Mountain",
+
     location: "Real Estate Ave, Real Estate AI",
+
     price: "$2,000",
+
     billingPeriod: "mo",
+
     image:
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+
     stats: {
       firstIconCount: 5,
+
       secondIconCount: 5,
     },
   },
+
   {
     id: 3,
+
     featured: true,
+
     status: "Available",
+
     title: "16 Bedrooms Home New",
+
     location: "Real Estate Ave, Real Estate Town",
+
     price: "$50,000",
+
     billingPeriod: null,
+
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+
     stats: {
       firstIconCount: 9,
+
       secondIconCount: 9,
     },
   },
+
   {
     id: 4,
+
     featured: true,
+
     status: "Pending",
+
     title: "3 Bed Rooms High Mountain Property",
+
     location: "Real Estate Ave, Real Estate Town",
+
     price: "$4,500",
+
     billingPeriod: "mo",
+
     image:
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+
     stats: {
       firstIconCount: 8,
+
       secondIconCount: 8,
     },
   },
 ];
-
 
 export const recentViewings = [
   {
@@ -174,8 +209,6 @@ export const recentViewings = [
   },
 ];
 
-
-
 export const propertyStats = [
   {
     id: 1,
@@ -203,57 +236,89 @@ export const propertyStats = [
   },
 ];
 
-export const propertListing  = [
+
+export const propertListing = [
   {
     id: 1,
     featured: true,
+    status: "Available",
     title: "3 House In One Row, At Mountain Jill",
     location: "New York, Gym location",
     price: "$6,000",
-    status: "Available",
-    type: "Townhouse",
-    bedrooms: 4,
-    bathrooms: 7,
-    area: "Unknown",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+    billingPeriod: null,
+
+    images: [
+      {
+        id: 1,
+        url: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+        order: 1,
+      },
+      {
+        id: 2,
+        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        order: 2,
+      },
+      {
+        id: 3,
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        order: 3,
+      },
+      {
+        id: 4,
+        url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+        order: 4,
+      },
+      {
+        id: 5,
+        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        order: 5,
+      },
+      {
+        id: 6,
+        url: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+        order: 6,
+      },
+    ],
+
+    
   },
+
   {
     id: 2,
     featured: true,
-    title: "7 BedRooms Apartment House At Mountain Hill",
-    location: "Miami Engineer Office, Real Estate Ave",
-    price: "$2,000/mo",
     status: "Available",
-    type: "Condo",
-    bedrooms: 5,
-    bathrooms: 5,
-    area: "64,325 sqft",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: 3,
-    featured: true,
-    title: "16 BedRooms Home New",
-    location: "Real Estate Ave, Real Estate Town",
-    price: "$50,000",
-    status: "Available",
-    type: "Townhouse",
-    bedrooms: 9,
-    bathrooms: 9,
-    area: "64,477 sqft",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: 4,
-    featured: true,
-    title: "3 Bed Rooms High Mountain Property",
-    location: "Real Estate Ave, Real Estate Town",
-    price: "$4,500/mo",
-    status: "Pending",
-    type: "House",
-    bedrooms: 8,
-    bathrooms: 8,
-    area: "Unknown",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
-  },
-]satisfies Property[];
+    title: "7 Bedrooms Apartment House At Mountain",
+    location: "Real Estate Ave, Real Estate AI",
+    price: "$2,000",
+    billingPeriod: "mo",
+
+    images: [
+      {
+        id: 7,
+        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        order: 1,
+      },
+      {
+        id: 8,
+        url: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+        order: 2,
+      },
+      {
+        id: 9,
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        order: 3,
+      },
+      {
+        id: 10,
+        url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+        order: 4,
+      },
+      {
+        id: 11,
+        url: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
+        order: 5,
+      },
+    ]},
+
+  
+];

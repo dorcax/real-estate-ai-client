@@ -78,11 +78,11 @@ navMain:[
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas" {...props}   className="bg-[#060E20] text-[#DAE2FD] [&_[data-sidebar=sidebar]]:bg-[#060E20]">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton className=" data-[slot=sidebar-menu-button]:p-1.5!">
+            <SidebarMenuButton className="data-[slot=sidebar-menu-button]:p-1.5!">
               {/* <a href="#">
                 <IconInnerShadowTop className="size-5!" />
                 <span className="text-sm font-semibold">Estate Call</span>

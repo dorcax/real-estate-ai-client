@@ -2,18 +2,27 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { features } from "../table/data-table-feature";
 import { Checkbox } from "../ui/checkbox";
 import PropertyActions from "./PropertyAction";
+
+export type PropertyImage = {
+  id: number;
+  url: string;
+  order: number;
+};
+
 export type Property = {
   id: number;
   featured: boolean;
+  status: "Available" | "Pending" | "Sold" | "Rented";
+
   title: string;
   location: string;
   price: string;
-  status: "Available" | "Pending" | "Sold" | "Rented";
-  type: "Townhouse" | "Condo" | "House" | "Apartment";
-  bedrooms: number;
-  bathrooms: number;
-  area: string;
-  image: string;
+
+  billingPeriod: string | null;
+
+  images: PropertyImage[];
+
+  
 };
 
 const columnHelper = createColumnHelper<typeof features, Property>();
@@ -39,15 +48,20 @@ export const columns = columnHelper.columns([
     enableHiding: false,
   },
 
-  columnHelper.accessor("image", {
+  columnHelper.accessor("images", {
     header: "Image",
-    cell: ({ row }) => (
+    cell: ({ row }) =>{
+      const mainImage =row.original.images.find((image)=>image.order===1)
+
+      return (
       <img
-        src={row.original.image}
+        src={mainImage?.url}
         alt={row.original.title}
         className="w-24 rounded-md object-cover"
       />
-    ),
+    )
+
+  }
   }),
   columnHelper.accessor("title", {
     header: "Title",
@@ -55,7 +69,7 @@ export const columns = columnHelper.columns([
       <div className="flex flex-col ">
         <span className="font-medium text-xs">{row.original.title}</span>
 
-        <span className="text-xs text-muted-foreground">
+        <span className="text-xs">
           {row.original.location}
         </span>
       </div>
@@ -66,7 +80,7 @@ export const columns = columnHelper.columns([
     cell: ({ row }) => (
       <div className="flex flex-col">
         <span className="mb-2">{row.original.price}</span>
-        <span className="text-xs border bg-[#6366F1] text-white rounded-2xl w-20 text-center p-1">
+        <span className="text-xs  bg-[#c0c1ff] text-[#1000A9] rounded-2xl w-20 text-center p-1">
           {row.original.status}
         </span>
       </div>

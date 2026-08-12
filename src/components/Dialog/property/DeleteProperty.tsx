@@ -37,15 +37,15 @@ const DeleteProperty = ({ row }: DeletePropertyProps) => {
       <div className="flex h-full flex-col justify-between space-y-6">
 
         <div className="space-y-2">
-          <h3 className="text-base font-semibold text-gray-900">
+          <h3 className="text-base font-semibold">
             Are you sure you want to delete this property?
           </h3>
 
-          <p className="text-xs text-gray-600">
+          <p className="text-xs ">
             This action will permanently remove 
             <span className="font-medium">
               {row.title}
-            </span>{" "}
+            </span>
             from the property list.
           </p>
         </div>

@@ -10,7 +10,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-
 export function NavMain({
   items,
 }: {
@@ -20,64 +19,46 @@ export function NavMain({
     icon?: Icon;
   }[];
 }) {
-
   return (
     <SidebarGroup>
-      <SidebarGroupContent className="flex flex-col gap-2">
-
+      <SidebarGroupContent className="flex flex-col gap-2 ">
         <SidebarMenu>
           <SidebarMenuItem className="flex items-center gap-2">
-
             <SidebarMenuButton
               tooltip="Quick Create"
-              className="min-w-8 bg-[#6366F1] text-primary-foreground"
+              className="min-w-8 bg-[#c0c1ff] text-[#1000A9] hover:bg-[#222a3d]  hover:text-[#dae2fd] "
             >
               <IconCirclePlusFilled />
               <span>Quick Create</span>
             </SidebarMenuButton>
 
-
             <Button
               size="icon"
-              className="size-8 group-data-[collapsible=icon]:opacity-0"
+              className="size-8  bg-[#464554] text-[#dae2fd] border-0 group-data-[collapsible=icon]:opacity-0"
               variant="outline"
             >
               <IconMail />
               <span className="sr-only">Inbox</span>
             </Button>
-
           </SidebarMenuItem>
         </SidebarMenu>
 
-
         <SidebarMenu>
-
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-
               <SidebarMenuButton
                 tooltip={item.title}
-              
                 className="capitalize text-xs font-normal "
               >
-
                 <Link to={item.url} className="flex text-xs gap-2">
-
                   {item.icon && <item.icon />}
 
-                  <span>
-                    {item.title}
-                  </span>
-
+                  <span>{item.title}</span>
                 </Link>
-
               </SidebarMenuButton>
-
             </SidebarMenuItem>
           ))}
-
         </SidebarMenu>
-
       </SidebarGroupContent>
     </SidebarGroup>
   );
