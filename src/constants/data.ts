@@ -73,7 +73,6 @@ export const todaysActivity: ActivityItem[] = [
   { label: "Available Listings", value: 3, icon: Home },
 ];
 
-
 export const properties = [
   {
     id: 1,
@@ -237,7 +236,8 @@ export const propertyStats = [
 ];
 
 
-export const propertListing = [
+
+export const propertListing:Property[] = [
   {
     id: 1,
     featured: true,
@@ -245,8 +245,24 @@ export const propertListing = [
     title: "3 House In One Row, At Mountain Jill",
     location: "New York, Gym location",
     price: "$6,000",
+    type:'APARTMENT',
+    yearBuilt:2000,
     billingPeriod: null,
-
+    description:
+      "A stylish family home with well-designed spaces, modern architecture, and premium amenities. Ideal for comfortable urban living with easy access to nearby facilities.",
+    bedrooms: 3,
+    bathrooms: 3,
+    toilets: 4,
+    parkingSpace: 2,
+    landSize: 550,
+    amenities: [
+      "Swimming Pool",
+      "Cinema Room",
+      "Luxury Kitchen",
+      "Guest Room",
+      "Private Parking",
+      "Garden Area",
+    ],
     images: [
       {
         id: 1,
@@ -279,8 +295,6 @@ export const propertListing = [
         order: 6,
       },
     ],
-
-    
   },
 
   {
@@ -291,7 +305,25 @@ export const propertListing = [
     location: "Real Estate Ave, Real Estate AI",
     price: "$2,000",
     billingPeriod: "mo",
+    description:
+      "A spacious apartment property featuring multiple bedrooms, modern finishes, and excellent living areas. Perfect for families seeking a large and comfortable residence.",
 
+    bedrooms: 7,
+     type:'HOUSE',
+    yearBuilt:2026,
+    bathrooms: 5,
+    toilets: 6,
+    parkingSpace: 4,
+    landSize: 800,
+
+    amenities: [
+      "Infinity Pool",
+      "Private Gym",
+      "Smart Home Automation",
+      "Large Garden",
+      "Luxury Lounge",
+      "24/7 Concierge Service",
+    ],
     images: [
       {
         id: 7,
@@ -318,7 +350,170 @@ export const propertListing = [
         url: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
         order: 5,
       },
-    ]},
+    ],
+  },
 
-  
+  {
+    id: 3,
+    featured: true,
+    status: "Available",
+    title: "Modern 4 Bedroom Family Home",
+    location: "Green Estate, Real Estate Town",
+    price: "$8,500",
+    billingPeriod: null,
+    description:
+      "A contemporary family home combining functionality and elegance. Built with quality materials, generous rooms, and a welcoming atmosphere for everyday living.",
+    bedrooms: 4,
+    bathrooms: 4,
+     type:'HOUSE',
+    yearBuilt:2025,
+    toilets: 5,
+    parkingSpace: 3,
+    landSize: 720,
+    amenities: [
+      "Swimming Pool",
+      "Cinema Room",
+      "Luxury Kitchen",
+      "Guest Room",
+      "Private Parking",
+      "Garden Area",
+    ],
+
+    images: [
+      {
+        id: 12,
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        order: 1,
+      },
+      {
+        id: 13,
+        url: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+        order: 2,
+      },
+      {
+        id: 14,
+        url: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+        order: 3,
+      },
+      {
+        id: 15,
+        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        order: 4,
+      },
+      {
+        id: 16,
+        url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+        order: 5,
+      },
+    ],
+  },
+
+  {
+    id: 4,
+    featured: false,
+    status: "Pending",
+    title: "Luxury 5 Bedroom Duplex",
+    location: "Palm Estate, Real Estate City",
+    price: "$4,500",
+    billingPeriod: "mo",
+    description:
+      "A luxury duplex offering spacious bedrooms, premium interiors, ample parking, and a refined lifestyle experience in a quiet residential neighbourhood.",
+    bedrooms: 5,
+    bathrooms: 5,
+    toilets: 6,
+    parkingSpace: 4,
+     type:'OFFICE',
+    yearBuilt:2024,
+    landSize: 950,
+
+    amenities: [
+      "Infinity Pool",
+      "Private Gym",
+      "Smart Home Automation",
+      "Large Garden",
+      "Luxury Lounge",
+      "24/7 Concierge Service",
+    ],
+    images: [
+      {
+        id: 17,
+        url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+        order: 1,
+      },
+      {
+        id: 18,
+        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        order: 2,
+      },
+      {
+        id: 19,
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        order: 3,
+      },
+      {
+        id: 20,
+        url: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
+        order: 4,
+      },
+      {
+        id: 21,
+        url: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+        order: 5,
+      },
+    ],
+  },
+
+  {
+    id: 5,
+    featured: true,
+    status: "Available",
+    title: "6 Bedroom Premium Villa",
+    location: "Lake View Estate, New York",
+    price: "$15,000",
+    billingPeriod: null,
+    description:
+      "An exclusive premium villa designed for luxury living with expansive spaces, elegant finishes, and top-class facilities for families who value comfort and privacy.",
+    bedrooms: 6,
+    bathrooms: 6,
+    toilets: 7,
+    parkingSpace: 5,
+    landSize: 1200,
+     type:'APARTMENT',
+    yearBuilt:2024,
+    amenities: [
+      "Elevator Access",
+      "Fitness Center",
+      "Balcony",
+      "24/7 Security",
+      "Central Air Conditioning",
+      "Covered Parking",
+    ],
+    images: [
+      {
+        id: 22,
+        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        order: 1,
+      },
+      {
+        id: 23,
+        url: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+        order: 2,
+      },
+      {
+        id: 24,
+        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        order: 3,
+      },
+      {
+        id: 25,
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        order: 4,
+      },
+      {
+        id: 26,
+        url: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+        order: 5,
+      },
+    ],
+  },
 ];

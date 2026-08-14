@@ -13,16 +13,23 @@ export type Property = {
   id: number;
   featured: boolean;
   status: "Available" | "Pending" | "Sold" | "Rented";
-
+  description: string;
   title: string;
   location: string;
   price: string;
+  amenities: string[];
+  yearBuilt: number;
 
   billingPeriod: string | null;
 
-  images: PropertyImage[];
+  bedrooms: number;
+  bathrooms: number;
+  toilets: number;
+  type: "APARTMENT" | "HOUSE" | "LAND" | "OFFICE" | "SHOP";
+  parkingSpace: number;
+  landSize: number;
 
-  
+  images: PropertyImage[];
 };
 
 const columnHelper = createColumnHelper<typeof features, Property>();
@@ -50,18 +57,19 @@ export const columns = columnHelper.columns([
 
   columnHelper.accessor("images", {
     header: "Image",
-    cell: ({ row }) =>{
-      const mainImage =row.original.images.find((image)=>image.order===1)
+    cell: ({ row }) => {
+      const mainImage = row.original.images.find((image) => image.order === 1);
 
       return (
-      <img
-        src={mainImage?.url}
-        alt={row.original.title}
-        className="w-24 rounded-md object-cover"
-      />
-    )
-
-  }
+        <img
+          src={mainImage?.url}
+          alt={row.original.title}
+          className="w-24 rounded-md object-cover  transition-transform
+      duration-300
+      hover:scale-110"
+        />
+      );
+    },
   }),
   columnHelper.accessor("title", {
     header: "Title",
@@ -69,9 +77,7 @@ export const columns = columnHelper.columns([
       <div className="flex flex-col ">
         <span className="font-medium text-xs">{row.original.title}</span>
 
-        <span className="text-xs">
-          {row.original.location}
-        </span>
+        <span className="text-xs">{row.original.location}</span>
       </div>
     ),
   }),
@@ -112,14 +118,10 @@ export const columns = columnHelper.columns([
   // }),
 
   columnHelper.display({
-  id: "actions",
+    id: "actions",
 
-  header: "Action",
+    header: "Action",
 
-  cell: ({ row }) => (
-    <PropertyActions 
-      property={row.original}
-    />
-  ),
-}),
+    cell: ({ row }) => <PropertyActions property={row.original} />,
+  }),
 ]);
