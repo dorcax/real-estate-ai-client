@@ -7,7 +7,7 @@ import PropertyStats from "../../components/property/Stats";
 import PropertyDescription from "../../components/property/Description";
 import PropertyAmenities from "../../components/property/Amenities";
 import PropertyStatus from "../../components/property/Status";
-import { PropertyDetail } from "./PropertyDetail";
+import { PropertyDetail } from "../../components/property/PropertyDetail";
 import PropertyAISection from "@/components/property/PropertyAiSection";
 
 const ViewProperty = () => {

@@ -8,6 +8,7 @@ import { Analytics } from "@/pages/Dashboard/Analytics";
 import Overview from "@/pages/Dashboard/overview";
 import PropertyListing from "@/pages/Dashboard/PropertyListing";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MarketPlace from "@/pages/Dashboard/MarketPlace";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path:'view-property/:id',
         element: <ViewProperty />,
+      },
+      {
+        path:'marketplace',
+        element: <MarketPlace />,
       },
     ],
   },

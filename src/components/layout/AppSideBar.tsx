@@ -49,7 +49,7 @@ navMain:[
   },
   {
     title: "Marketplace",
-    url: "#",
+    url: "/dashboard/marketplace",
     icon: IconListDetails,
   },
   {

@@ -8,6 +8,12 @@ import {
 } from "@tabler/icons-react";
 import { MessageCircle, Zap, PhoneCall, Headset, Home } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import {
+  UserRoundPlus,
+  WandSparkles,
+  BadgeDollarSign,
+  Banknote,
+} from "lucide-react";
 export const dashboardStats = [
   {
     title: "Active Listings",
@@ -517,3 +523,31 @@ export const propertListing:Property[] = [
     ],
   },
 ];
+
+
+
+export const metrics = [
+  {
+    title: "Total Leads",
+    value: "1,248",
+    icon: UserRoundPlus,
+    changeText: "+12.5% from last month",
+  },
+  {
+    title: "Conversion Rate",
+    value: "18.4%",
+    icon: WandSparkles,
+    changeText: "+2.1% from last month",
+  },
+  {
+    title: "Avg. Deal Size",
+    value: "$450k",
+    icon: BadgeDollarSign,
+    changeText: "No change",
+  },
+ {
+    title: "Closed Revenue",
+    value: "$4.2M",
+    icon: Banknote,
+    changeText: "+8.4% from last month",
+    }]
