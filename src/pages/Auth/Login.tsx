@@ -1,107 +1,36 @@
-// import { Button } from "@/components/ui/button";
-// import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-// import { Input } from "@/components/ui/input";
-// import { useForm } from "react-hook-form";
-
-// const Login = () => {
-//   const form = useForm();
-//   return (
-//     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020617] px-4 py-8 text-white">
-//       <div
-//         className="pointer-events-none absolute inset-0 opacity-20"
-//         style={{
-//           background:
-//             "radial-gradient(circle at 30% 30%, #8083ff, transparent 40%)",
-//         }}
-//       />
-//       <div className=" w-full max-w-sm  rounded-md bg-[#0F172A] px-6  ">
-//         <div>
-//           <h1 className="text-[#818CF8] text-sm text-center p-3 font-semibold">
-//             Aura Ai
-//           </h1>
-//         </div>
-//         <div className="flex flex-col items-center justify-center mb-6 ">
-//           <h2 className="text-white text-base mb-2 ">Welcome back </h2>
-//           <p className="text-xs ">
-//             Enter your details to access your dashboard
-//           </p>
-//         </div>
-//         {/* form  */}
-
-//         <form className="space-y-8">
-//           <FieldGroup>
-//             <Field>
-//               <FieldLabel className="text-xs">Email</FieldLabel>
-//               <Input
-//                 id="email"
-//                 placeholder="email"
-//                 className="py-5"
-//                 {...form.register("fullName")}
-//               />
-//             </Field>
-
-//             <Field>
-//               <FieldLabel className="text-xs">Password </FieldLabel>
-//               <Input
-//                 id="password "
-//                 placeholder="password"
-//                 className="py-5"
-//                 {...form.register("fullName")}
-//               />
-//             </Field>
-//             <Button
-//               type="submit"
-//               className="w-full bg-[#6366F1] py-5 hover:bg-[#6366F1]"
-//             >
-//               Login
-//             </Button>
-//           </FieldGroup>
-//         </form>
-//         <div className="flex items-center gap-4 my-3">
-//           <span className="flex-1 border-t border-t-gray-300" />
-//           <span className="text-sm text-gray-500 whitespace-nowrap">or</span>
-//           <span className="flex-1 border-t border-t-gray-300"></span>
-//         </div>
-//         {/* oauth option */}
-
-//         <div className="flex flex-col gap-4 mb-4 justify-center items-center ">
-//           {" "}
-//           <Button className="bg-gray-800 w-full hover:bg-gray-800 ">
-//             Continue with Google{" "}
-//           </Button>
-//           <p className="text-center text-xs text-gray-400">
-//             Don't have an account?
-//             <a
-//               href="/sign-up"
-//               className="font-medium text-[#818CF8] hover:underline"
-//             >
-//               Sign up
-//             </a>
-//           </p>
-//         </div>
-//       </div>
-//     </main>
-//   );
-// };
-
-// export default Login;
-
+import { setAuth } from "@/api/auth";
+import { useSignInMutation } from "@/api/auth.api";
+import Loader from "@/common/Loader";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { z } from "zod";
 
 interface LoginFormData {
   email: string;
   password: string;
 }
 
+const signInSchema = z.object({
+  email: z.email(),
+  password: z.string(),
+});
+
+type LoginSchema = z.infer<typeof signInSchema>;
+
 const Login = () => {
+  const [signIn, { isLoading }] = useSignInMutation();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<LoginFormData>({
+    formState: { errors },
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -110,8 +39,12 @@ const Login = () => {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
+      const res = await signIn(data).unwrap();
+      dispatch(setAuth({ token: res.token }));
+      toast.success(res.message);
       console.log("Login data:", data);
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error?.data?.message);
       console.error("Login failed:", error);
     }
   };
@@ -207,10 +140,10 @@ const Login = () => {
 
             <Button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isLoading}
               className="h-11 w-full bg-[#6366F1] font-medium text-white transition-colors hover:bg-[#818CF8] focus:ring-2 focus:ring-[#818CF8] focus:ring-offset-2 focus:ring-offset-[#0F172A] disabled:opacity-50"
             >
-              {isSubmitting ? "Logging in..." : "Login"}
+              {isLoading ? <Loader /> : "Login"}
             </Button>
           </FieldGroup>
         </form>

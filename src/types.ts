@@ -102,3 +102,44 @@ export type Property = {
 
   images: PropertyImage[];
 };
+
+
+
+export type BillingHistory = {
+  invoice: string
+  billingDate: string
+  plan: "Professional" | "Starter"
+  amount: number
+  paymentMethod: string
+  status: "Successful"
+}
+
+
+export type TeamRole = "Owner" | "Admin" | "Agent"
+
+export type MemberStatus = "Active" | "Inactive"
+
+export type TeamStat = {
+  id: number
+  title:
+    | "Total Members"
+    | "Admins"
+    | "Agents"
+    | "Pending Invitations"
+  value: number
+  icon:string
+  badge: string | null
+}
+
+export type TeamMember = {
+  id: number
+  name: string
+  email: string
+  avatar: string 
+  role: TeamRole
+  assignedProperties: number
+  activeLeads: number
+  status: MemberStatus
+  lastActive: string
+}
+

@@ -6,7 +6,7 @@ import {
   IconChartLine,
   IconPhoneCall,
 } from "@tabler/icons-react";
-import { MessageCircle, Zap, PhoneCall, Headset, Home } from "lucide-react";
+import { MessageCircle, Zap, PhoneCall, Headset, Home, User, Shield, Headphones, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
   UserRoundPlus,
@@ -241,9 +241,7 @@ export const propertyStats = [
   },
 ];
 
-
-
-export const propertListing:Property[] = [
+export const propertListing: Property[] = [
   {
     id: 1,
     featured: true,
@@ -251,8 +249,8 @@ export const propertListing:Property[] = [
     title: "3 House In One Row, At Mountain Jill",
     location: "New York, Gym location",
     price: "$6,000",
-    type:'APARTMENT',
-    yearBuilt:2000,
+    type: "APARTMENT",
+    yearBuilt: 2000,
     billingPeriod: null,
     description:
       "A stylish family home with well-designed spaces, modern architecture, and premium amenities. Ideal for comfortable urban living with easy access to nearby facilities.",
@@ -315,8 +313,8 @@ export const propertListing:Property[] = [
       "A spacious apartment property featuring multiple bedrooms, modern finishes, and excellent living areas. Perfect for families seeking a large and comfortable residence.",
 
     bedrooms: 7,
-     type:'HOUSE',
-    yearBuilt:2026,
+    type: "HOUSE",
+    yearBuilt: 2026,
     bathrooms: 5,
     toilets: 6,
     parkingSpace: 4,
@@ -371,8 +369,8 @@ export const propertListing:Property[] = [
       "A contemporary family home combining functionality and elegance. Built with quality materials, generous rooms, and a welcoming atmosphere for everyday living.",
     bedrooms: 4,
     bathrooms: 4,
-     type:'HOUSE',
-    yearBuilt:2025,
+    type: "HOUSE",
+    yearBuilt: 2025,
     toilets: 5,
     parkingSpace: 3,
     landSize: 720,
@@ -428,8 +426,8 @@ export const propertListing:Property[] = [
     bathrooms: 5,
     toilets: 6,
     parkingSpace: 4,
-     type:'OFFICE',
-    yearBuilt:2024,
+    type: "OFFICE",
+    yearBuilt: 2024,
     landSize: 950,
 
     amenities: [
@@ -484,8 +482,8 @@ export const propertListing:Property[] = [
     toilets: 7,
     parkingSpace: 5,
     landSize: 1200,
-     type:'APARTMENT',
-    yearBuilt:2024,
+    type: "APARTMENT",
+    yearBuilt: 2024,
     amenities: [
       "Elevator Access",
       "Fitness Center",
@@ -524,8 +522,6 @@ export const propertListing:Property[] = [
   },
 ];
 
-
-
 export const metrics = [
   {
     title: "Total Leads",
@@ -545,9 +541,209 @@ export const metrics = [
     icon: BadgeDollarSign,
     changeText: "No change",
   },
- {
+  {
     title: "Closed Revenue",
     value: "$4.2M",
     icon: Banknote,
     changeText: "+8.4% from last month",
-    }]
+  },
+];
+
+export const customers = [
+  {
+    name: "Sarah Okafor",
+    customerType: "High-Net-Worth",
+    image: "/images/sarah-okafor.jpg",
+    phone: "+234 803 123 4567",
+    email: "sarah.o@example.com",
+    location: "Lagos, NG",
+    activeLeads: 3,
+    lastInteraction: {
+      date: "Today, 10:42 AM",
+      activity: "Property Viewing",
+    },
+    assignedAgent: {
+      name: "David Ade",
+      initials: "DA",
+    },
+  },
+  {
+    name: "Tolu Adebayo",
+    customerType: "Corporate Client",
+    image: "/images/tolu-adebayo.jpg",
+    phone: "+234 812 987 6543",
+    email: "t.adebayo@techcorp.ng",
+    location: "Abuja, NG",
+    activeLeads: 1,
+    lastInteraction: {
+      date: "Yesterday",
+      activity: "Contract Sent",
+    },
+    assignedAgent: {
+      name: "Mary Kalu",
+      initials: "MK",
+    },
+  },
+  {
+    name: "Chidi Eze",
+    customerType: "Investor",
+    image: "/images/chidi-eze.jpg",
+    phone: "+234 905 555 1234",
+    email: "chidi.investments@mail.com",
+    location: "Port Harcourt, NG",
+    activeLeads: 5,
+    lastInteraction: {
+      date: "Oct 12, 2023",
+      activity: "Call Logged",
+    },
+    assignedAgent: {
+      name: "David Ade",
+      initials: "DA",
+    },
+  },
+  {
+    name: "Aisha Bello",
+    customerType: "First-time Buyer",
+    image: "/images/aisha-bello.jpg",
+    phone: "+234 701 222 3344",
+    email: "a.bello92@gmail.com",
+    location: "Kano, NG",
+    activeLeads: 0,
+    lastInteraction: {
+      date: "Oct 10, 2023",
+      activity: "Email Sent",
+    },
+    assignedAgent: {
+      name: "Mary Kalu",
+      initials: "MK",
+    },
+  },
+  {
+    name: "Femi Olatunji",
+    customerType: "Commercial",
+    image: "/images/femi-olatunji.jpg",
+    phone: "+234 809 888 7766",
+    email: "femi@olatunji-holdings.com",
+    location: "Ibadan, NG",
+    activeLeads: 2,
+    lastInteraction: {
+      date: "Oct 05, 2023",
+      activity: "AI Summary Generated",
+    },
+    assignedAgent: {
+      name: "David Ade",
+      initials: "DA",
+    },
+  },
+];
+
+export const billingInvoice =[
+  {
+    "invoice": "INV-2026-08",
+    "billingDate": "Aug 16, 2026",
+    "plan": "Professional",
+    "amount": 75000,
+    "paymentMethod": "•••• 4821",
+    "status": "Successful"
+  },
+  {
+    "invoice": "INV-2026-07",
+    "billingDate": "Jul 16, 2026",
+    "plan": "Professional",
+    "amount": 75000,
+    "paymentMethod": "•••• 4821",
+    "status": "Successful"
+  },
+  {
+    "invoice": "INV-2026-06",
+    "billingDate": "Jun 16, 2026",
+    "plan": "Starter",
+    "amount": 25000,
+    "paymentMethod": "•••• 4821",
+    "status": "Successful"
+  }
+]
+
+
+
+
+
+
+export const teamStats =[ 
+    {
+      id: 1,
+      title: "Total Members",
+      value: 8,
+      icon: User,
+      badge: "+2 this month",
+    },
+    {
+      id: 2,
+      title: "Admins",
+      value: 2,
+      icon: Shield,
+      badge: null,
+    },
+    {
+      id: 3,
+      title: "Agents",
+      value: 5,
+      icon: Headphones,
+      badge: null,
+    },
+    {
+      id: 4,
+      title: "Pending Invitations",
+      value: 3,
+      icon: Mail,
+      badge: null,
+    },
+  ]
+
+export const teamData = [
+
+{
+      id: 1,
+      name: "Daniel Adeyemi",
+      email: "daniel@settlla.com",
+      avatar: "/images/team/daniel.jpg",
+      role: "Owner",
+      assignedProperties: 42,
+      activeLeads: 12,
+      status: "Active",
+      lastActive: "Just now",
+    },
+    {
+      id: 2,
+      name: "Sarah Okafor",
+      email: "sarah.o@settlla.com",
+      avatar: "/images/team/sarah.jpg",
+      role: "Admin",
+      assignedProperties: 156,
+      activeLeads: 45,
+      status: "Active",
+      lastActive: "2 hours ago",
+    },
+    {
+      id: 3,
+      name: "Chinedu Obi",
+      email: "chinedu@settlla.com",
+      avatar: null,
+      role: "Agent",
+      assignedProperties: 14,
+      activeLeads: 28,
+      status: "Inactive",
+      lastActive: "3 days ago",
+    },
+    {
+      id: 4,
+      name: "Ada Williams",
+      email: "ada.w@settlla.com",
+      avatar: "/images/team/ada.jpg",
+      role: "Agent",
+      assignedProperties: 31,
+      activeLeads: 52,
+      status: "Active",
+      lastActive: "Yesterday",
+    },
+  ]

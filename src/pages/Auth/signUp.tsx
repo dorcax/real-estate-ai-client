@@ -1,3 +1,7 @@
+import { Role, type Role as RoleType } from "@/api/api.type";
+import { setAuth } from "@/api/auth";
+import { useSignUpMutation } from "@/api/auth.api";
+import Loader from "@/common/Loader";
 import { Button } from "@/components/ui/button";
 import {
   Field,
@@ -6,33 +10,69 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { MoveLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-const loginSchema = z.object({
+const signUpSchema = z.object({
   fullName: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email"),
-  phoneNumber: z.string().min(10, "Phone number is required"),
   password: z.string().min(6, "Password must be 6 characters"),
 });
 
-type LoginSchema = z.infer<typeof loginSchema>;
+type registerSchema = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
-  const form = useForm<LoginSchema>({
-    resolver: zodResolver(loginSchema),
+  const [signUp, { isLoading: loading }] = useSignUpMutation();
+  const [searchParams] = useSearchParams();
+  const roleParam = searchParams.get("role");
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+
+  const role: RoleType | null =
+    roleParam === Role.ADMIN ||
+    roleParam === Role.AGENT ||
+    roleParam === Role.CUSTOMER ||
+    roleParam === Role.OWNER
+      ? roleParam
+      : null;
+
+  const form = useForm<registerSchema>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       fullName: "",
       email: "",
-      phoneNumber: "",
       password: "",
     },
   });
 
-  function onSubmit(data: LoginSchema) {
-    console.log(data);
+  async function onSubmit(data: registerSchema) {
+    try {
+      // if (!role) {
+      //   console.error("Invalid or missing role");
+      //   return;
+      // }
+      const response = await signUp({
+        fullName: data.fullName,
+        email: data.email,
+        password: data.password,
+        role: "OWNER",
+      }).unwrap();
+
+      sessionStorage.setItem("verificationEmail", data.email);
+
+      // dispatch(setAuth(token:a))
+
+      // console.log(response)
+      toast.success(response.message);
+      navigate("/verify-otp");
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error?.data?.message || "something went wrong ");
+    }
   }
 
   return (
@@ -110,7 +150,7 @@ const SignUp = () => {
                   )}
                 </Field>
 
-                <Field>
+                {/* <Field>
                   <FieldLabel htmlFor="phoneNumber">Phone Number</FieldLabel>
 
                   <Input
@@ -119,7 +159,7 @@ const SignUp = () => {
                     className="py-5"
                     {...form.register("phoneNumber")}
                   />
-                </Field>
+                </Field> */}
 
                 <Field>
                   <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -135,9 +175,10 @@ const SignUp = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#6366F1] py-5 hover:bg-[#6366F1]"
+                  disabled={loading}
+                  className="w-full bg-[#6366F1] py-5 hover:bg-[#6366F1] capitalize"
                 >
-                  Create account
+                  {loading ? <Loader /> : "create account"}
                 </Button>
 
                 <div className="flex items-center gap-4 my-4">

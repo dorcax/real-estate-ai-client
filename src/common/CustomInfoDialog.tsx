@@ -2,12 +2,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
-  DialogTitle,
+  DialogTitle
 } from "@/components/ui/dialog";
 
-import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
 

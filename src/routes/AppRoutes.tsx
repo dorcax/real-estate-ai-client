@@ -1,14 +1,17 @@
 import { AppLayout } from "@/components/layout/AppLayout";
-import ViewProperty from "@/pages/Dashboard/ViewProperty";
 import Login from "@/pages/Auth/Login";
 import RoleSelection from "@/pages/Auth/roleSelection";
 import SignUp from "@/pages/Auth/signUp";
 import VerifyOtp from "@/pages/Auth/verifyOtp";
 import { Analytics } from "@/pages/Dashboard/Analytics";
+import Billing from "@/pages/Dashboard/Billing";
+import Customer from "@/pages/Dashboard/Customer";
+import MarketPlace from "@/pages/Dashboard/MarketPlace";
 import Overview from "@/pages/Dashboard/overview";
 import PropertyListing from "@/pages/Dashboard/PropertyListing";
+import TeamPage from "@/pages/Dashboard/Team";
+import ViewProperty from "@/pages/Dashboard/ViewProperty";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MarketPlace from "@/pages/Dashboard/MarketPlace";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +53,18 @@ const router = createBrowserRouter([
       {
         path:'marketplace',
         element: <MarketPlace />,
+      },
+      {
+        path:'customer',
+        element: <Customer />,
+      },
+      {
+        path:'billing',
+        element: <Billing />,
+      },
+      {
+        path:'Team',
+        element: <TeamPage />,
       },
     ],
   },

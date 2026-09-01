@@ -58,8 +58,8 @@ navMain:[
     icon: IconUsers,
   },
   {
-    title: "Viewings",
-    url: "#",
+    title: "Team",
+    url: "/dashboard/team",
     icon: IconEye,
   },
   {
@@ -68,7 +68,17 @@ navMain:[
     icon: IconCalendar,
   },
   {
-    title: "Clients",
+    title: "Customers",
+    url: "/dashboard/customer",
+    icon: IconUser,
+  },
+  {
+    title: "Billing",
+    url: "/dashboard/billing",
+    icon: IconUser,
+  },
+  {
+    title: "Setting",
     url: "#",
     icon: IconUser,
   },

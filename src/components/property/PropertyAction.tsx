@@ -16,7 +16,7 @@ import EditProperty from "../Dialog/property/EditProperty";
 import { Link } from "react-router-dom";
 
 
-const PropertyActions = ({ property }: { property: Property }) => {
+const PropertyActions = ({ property }: { property: any }) => {
 
   const { openDialog } = usePopUpContext();
 

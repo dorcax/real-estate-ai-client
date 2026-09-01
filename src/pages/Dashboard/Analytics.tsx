@@ -1,10 +1,13 @@
+import { LeadAnalytics } from "@/components/Analytics/AnalyticsTable";
+import { ChartLineDefault } from "@/components/Analytics/Chart";
+import { ChartPieDonut } from "@/components/Analytics/PieChart";
 import { Button } from "@/components/ui/button";
 import { metrics } from "@/constants/data";
 
 
 export const Analytics = () => {
   return (
-    <section className="text-[#dae2fd] space-y-5">
+    <section className="text-[#dae2fd] space-y-6">
       <header className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold">Analytics overview</h1>
@@ -34,7 +37,15 @@ export const Analytics = () => {
         </div>
 })}
       </div>
+      {/* chart line and piechart  */}
+      <section className="grid grid-cols-4 gap-4 items-start">
+        <div className="col-span-3 border border-[#464554] rounded-xl  ">
+          <ChartLineDefault/>
+        </div>
+        <div className="border border-[#464554] rounded-xl"><ChartPieDonut/></div>
+      </section>
 
+<LeadAnalytics />
     </section>
   );
 };
