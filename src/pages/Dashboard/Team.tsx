@@ -4,7 +4,7 @@ import { DataTable } from "@/components/table/data-table"
 import { columns } from "@/components/Team/data-columns"
 import { StatCard } from "@/components/Team/TeamStat"
 import { teamData, teamStats } from "@/constants/data"
-import type { TeamMember, TeamStat } from "@/types"
+import type { TeamMember } from "@/types"
 import {
     SlidersHorizontal,
     UserPlus
@@ -38,7 +38,7 @@ export default function TeamPage() {
 
       {/* Stats */}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {teamStats.map((stat) => (
+        {teamStats.map((stat:any) => (
           <StatCard key={stat.id} stat={stat} />
         ))}
       </section>

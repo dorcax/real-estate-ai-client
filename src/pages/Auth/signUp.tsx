@@ -1,5 +1,4 @@
 import { Role, type Role as RoleType } from "@/api/api.type";
-import { setAuth } from "@/api/auth";
 import { useSignUpMutation } from "@/api/auth.api";
 import Loader from "@/common/Loader";
 import { Button } from "@/components/ui/button";
@@ -32,13 +31,13 @@ const SignUp = () => {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 
-  const role: RoleType | null =
-    roleParam === Role.ADMIN ||
-    roleParam === Role.AGENT ||
-    roleParam === Role.CUSTOMER ||
-    roleParam === Role.OWNER
-      ? roleParam
-      : null;
+  // const role: RoleType | null =
+  //   roleParam === Role.ADMIN ||
+  //   roleParam === Role.AGENT ||
+  //   roleParam === Role.CUSTOMER ||
+  //   roleParam === Role.OWNER
+  //     ? roleParam
+  //     : null;
 
   const form = useForm<registerSchema>({
     resolver: zodResolver(signUpSchema),
@@ -64,7 +63,7 @@ const SignUp = () => {
 
       sessionStorage.setItem("verificationEmail", data.email);
 
-      // dispatch(setAuth(token:a))
+      
 
       // console.log(response)
       toast.success(response.message);
@@ -86,8 +85,8 @@ const SignUp = () => {
       />
 
       <div className="relative z-10 flex w-full max-w-4xl min-h-150 flex-col overflow-hidden rounded-lg border border-white/10 bg-[#0F172A] shadow-2xl md:flex-row">
-        <section className="relative flex-1 px-6 py-8 md:px-8 bg-[url('/apartment1.jpg')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-black/85" />
+        <section className="relative flex-1 px-6 py-8 md:px-8 bg-[url('/apartment1.jpg')]  bg-cover bg-center">
+          {/* <div className="absolute inset-0 bg-black/85" /> */}
 
           <div className="absolute bottom-20 left-6 right-6">
             <h1 className="text-3xl font-semibold leading-tight max-w-md">
@@ -181,7 +180,7 @@ const SignUp = () => {
                   {loading ? <Loader /> : "create account"}
                 </Button>
 
-                <div className="flex items-center gap-4 my-4">
+                {/* <div className="flex items-center gap-4 my-4">
                   <span className="flex-1 border-t border-gray-300" />
 
                   <span className="text-sm text-gray-500 whitespace-nowrap">
@@ -205,7 +204,7 @@ const SignUp = () => {
                     </svg>
                     Google
                   </Button>
-                </div>
+                </div> */}
 
                 <p className="text-center text-xs text-gray-400">
                   Already have an account?{" "}

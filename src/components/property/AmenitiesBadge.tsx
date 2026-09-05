@@ -7,7 +7,7 @@ import {
   Sun,
   House,
   Wifi,
-  Tv,
+
 } from "lucide-react";
 
 const iconMap = {

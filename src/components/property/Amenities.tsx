@@ -33,6 +33,3 @@ text-[#dae2fd]
 };
 
 export default PropertyAmenities;
-
-import { Bot, ExternalLink } from "lucide-react";
-

@@ -11,7 +11,7 @@ import { MoreHorizontal } from "lucide-react";
 import { usePopUpContext } from "@/context/PopUpContext";
 import DeleteProperty from "../Dialog/property/DeleteProperty";
 
-import type { Property } from "./data-column";
+// import type { Property } from "./data-column";
 import EditProperty from "../Dialog/property/EditProperty";
 import { Link } from "react-router-dom";
 

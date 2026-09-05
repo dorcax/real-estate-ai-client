@@ -27,7 +27,7 @@ import {
   type PropertyFormValues,
 } from "../../../types";
 
-const labelStyle = "text-xs text-gray-900 font-medium";
+// const labelStyle = "text-xs text-gray-900 font-medium";
 
 type PropertyFormProps = {
   mode: "create" | "edit";

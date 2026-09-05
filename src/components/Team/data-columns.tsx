@@ -1,6 +1,5 @@
 import type { TeamMember } from "@/types";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Download } from "lucide-react";
 import { features } from "../table/data-table-feature";
 import { Checkbox } from "../ui/checkbox";
 

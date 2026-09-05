@@ -1,16 +1,12 @@
-
-
-
-
 import { createColumnHelper } from "@tanstack/react-table";
+import { MapPin } from "lucide-react";
+import PropertyActions from "../property/PropertyAction";
 import { features } from "../table/data-table-feature";
 import { Checkbox } from "../ui/checkbox";
-import PropertyActions from "../property/PropertyAction";
-import { Map, MapIcon, MapPin } from "lucide-react";
 
 export type Customer = {
   name: string;
-  image:string;
+  image: string;
   customerType: string;
   phone: string;
   email: string;
@@ -52,63 +48,64 @@ export const columns = columnHelper.columns([
   columnHelper.accessor("name", {
     header: "Customer",
     cell: ({ row }) => {
-     
-
       return (
-       <div className="flex gap-3">
-         <img
-          src={row.original.image}
-          alt={row.original.name}
-          className="w-12 h-12 rounded-full object-cover  transition-transform
+        <div className="flex gap-3">
+          <img
+            src={row.original.image}
+            alt={row.original.name}
+            className="w-12 h-12 rounded-full object-cover  transition-transform
       duration-300
       hover:scale-110"
-        />
-        {/* customer name  */}
+          />
+          {/* customer name  */}
 
-        <div>
+          <div>
             <h2>{row.original.name}</h2>
             <p>{row.original.customerType}</p>
+          </div>
         </div>
-       </div>
       );
     },
   }),
-//   columnHelper.accessor("phone", {
-//     header: "Contact",
-//     cell: ({ row }) => (
-//       <div className="flex flex-col ">
-//         <span className="font-medium text-xs">{row.original.phone}</span>
+  //   columnHelper.accessor("phone", {
+  //     header: "Contact",
+  //     cell: ({ row }) => (
+  //       <div className="flex flex-col ">
+  //         <span className="font-medium text-xs">{row.original.phone}</span>
 
-//         <span className="text-xs">{row.original.email}</span>
-//       </div>
-//     ),
-//   }),
+  //         <span className="text-xs">{row.original.email}</span>
+  //       </div>
+  //     ),
+  //   }),
 
   columnHelper.accessor("location", {
     header: "Location",
     cell: ({ row }) => (
       <div className="">
-        <span className="flex gap-2 text-xs"><MapPin />{row.original.location}</span>
+        <span className="flex gap-2 text-xs">
+          <MapPin />
+          {row.original.location}
+        </span>
         {/* <span className="text-xs  bg-[#c0c1ff] text-[#1000A9] rounded-2xl w-20 text-center p-1">
           {row.original.status}
         </span> */}
       </div>
     ),
   }),
-  
-//   columnHelper.accessor("activeLeads", {
-//     header: "activeLeads",
-//     cell: ({ row }) => (
-//       <div className="">
-//         <span className="w-10 h-10 rounded-full border p-3 ">{row.original.activeLeads}</span>
-//         {/* <span className="text-xs  bg-[#c0c1ff] text-[#1000A9] rounded-2xl w-20 text-center p-1">
-//           {row.original.status}
-//         </span> */}
-//       </div>
-//     ),
-//   }),
 
-   columnHelper.accessor("lastInteraction", {
+  //   columnHelper.accessor("activeLeads", {
+  //     header: "activeLeads",
+  //     cell: ({ row }) => (
+  //       <div className="">
+  //         <span className="w-10 h-10 rounded-full border p-3 ">{row.original.activeLeads}</span>
+  //         {/* <span className="text-xs  bg-[#c0c1ff] text-[#1000A9] rounded-2xl w-20 text-center p-1">
+  //           {row.original.status}
+  //         </span> */}
+  //       </div>
+  //     ),
+  //   }),
+
+  columnHelper.accessor("lastInteraction", {
     header: "lastInteraction",
     cell: ({ row }) => (
       <div className="flex flex-col text-xs">
@@ -120,7 +117,7 @@ export const columns = columnHelper.columns([
       </div>
     ),
   }),
-   columnHelper.accessor("assignedAgent", {
+  columnHelper.accessor("assignedAgent", {
     header: "AssignedAgent",
     cell: ({ row }) => (
       <div className="flex flex-col">
@@ -132,7 +129,6 @@ export const columns = columnHelper.columns([
       </div>
     ),
   }),
-
 
   columnHelper.display({
     id: "actions",

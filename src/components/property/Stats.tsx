@@ -1,4 +1,4 @@
-import { Bath, BedDouble, CarFront, MapPin } from "lucide-react";
+import { Bath, BedDouble, CarFront } from "lucide-react";
 
 import { type Property } from "@/types";
 
@@ -29,8 +29,6 @@ const PropertyStats = ({ property }: { property: Property }) => {
         return (
           <section>
             {/* property title and price */}
-
-         
 
             <div
               key={item.label}
