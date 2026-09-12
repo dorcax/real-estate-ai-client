@@ -747,3 +747,22 @@ export const teamData = [
       lastActive: "Yesterday",
     },
   ]
+
+  export const onboardingTeam = [
+    {
+      label: "Company",
+      value: "company",
+    },
+    {
+      label: "Add details",
+      value: "details",
+    },
+    {
+      label: "Team",
+      value: "team",
+    },
+    {
+      label: "Ready",
+      value: "ready",
+    },
+  ];

@@ -1,5 +1,6 @@
 import { AppLayout } from "@/components/layout/AppLayout";
 import Login from "@/pages/Auth/Login";
+
 import RoleSelection from "@/pages/Auth/roleSelection";
 import SignUp from "@/pages/Auth/signUp";
 import VerifyOtp from "@/pages/Auth/verifyOtp";
@@ -11,6 +12,7 @@ import Overview from "@/pages/Dashboard/overview";
 import PropertyListing from "@/pages/Dashboard/PropertyListing";
 import TeamPage from "@/pages/Dashboard/Team";
 import ViewProperty from "@/pages/Dashboard/ViewProperty";
+import OnboardingLayout from "@/pages/Onboarding/OnboardingLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/verify-otp",
     element: <VerifyOtp />,
+  },
+  {
+    path: "/onboarding",
+    element: <OnboardingLayout />,
   },
   {
     path: "/dashboard",

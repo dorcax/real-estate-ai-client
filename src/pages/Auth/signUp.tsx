@@ -75,17 +75,11 @@ const SignUp = () => {
   }
 
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020617] px-4 py-8 text-white">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 30%, #8083ff, transparent 40%)",
-        }}
-      />
+    <main className="h-screen text-white overflow-hidden">
+    
 
-      <div className="relative z-10 flex w-full max-w-4xl min-h-150 flex-col overflow-hidden rounded-lg border border-white/10 bg-[#0F172A] shadow-2xl md:flex-row">
-        <section className="relative flex-1 px-6 py-8 md:px-8 bg-[url('/apartment1.jpg')]  bg-cover bg-center">
+      <div className="relative z-10  grid grid-cols-5 gap-3 w-full  bg-[#0F172A] shadow-2xl">
+        <section className="relative  col-span-2 px-6 py-8 md:px-8 bg-[url('/apartment1.jpg')]  bg-cover bg-center">
           {/* <div className="absolute inset-0 bg-black/85" /> */}
 
           <div className="absolute bottom-20 left-6 right-6">
@@ -101,11 +95,10 @@ const SignUp = () => {
           </div>
         </section>
 
-        <section className="flex-1 px-6 py-20 md:px-8">
+        <section className="col-span-3 w-full max-w-xl mx-auto  px-6 py-20 md:px-8">
           <div className="px-10">
-            <div className="flex items-center gap-3 text-sm text-gray-300 mb-3">
-              <MoveLeft size={18} />
-              Back To Roles
+            <div className="flex items-center justify-center gap-3 text-sm text-gray-300 mb-3">
+             E
             </div>
 
             <div className="mb-4">
