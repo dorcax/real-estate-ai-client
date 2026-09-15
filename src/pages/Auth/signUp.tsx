@@ -63,8 +63,6 @@ const SignUp = () => {
 
       sessionStorage.setItem("verificationEmail", data.email);
 
-      
-
       // console.log(response)
       toast.success(response.message);
       navigate("/verify-otp");
@@ -75,10 +73,8 @@ const SignUp = () => {
   }
 
   return (
-    <main className="h-screen text-white overflow-hidden">
-    
-
-      <div className="relative z-10  grid grid-cols-5 gap-3 w-full  bg-[#0F172A] shadow-2xl">
+    <main className="h-screen text-white overflow-hidden bg-[#0F172A]">
+      <div className="grid grid-cols-5 h-full ">
         <section className="relative  col-span-2 px-6 py-8 md:px-8 bg-[url('/apartment1.jpg')]  bg-cover bg-center">
           {/* <div className="absolute inset-0 bg-black/85" /> */}
 
@@ -95,18 +91,20 @@ const SignUp = () => {
           </div>
         </section>
 
-        <section className="col-span-3 w-full max-w-xl mx-auto  px-6 py-20 md:px-8">
-          <div className="px-10">
-            <div className="flex items-center justify-center gap-3 text-sm text-gray-300 mb-3">
-             E
-            </div>
+        <section className="col-span-3 w-full h-full overflow-y-auto">
+          <div className="w-full max-w-sm mx-auto py-20 ">
+            <div className="flex justify-center items-center flex-col ">
+              <div className="mb-6 text-center">
+                <h1 className="inline-block rounded-full bg-[#818CF8]/10 px-4 py-1.5 text-sm font-semibold text-[#818CF8]">
+                  Aura AI
+                </h1>
+              </div>
 
-            <div className="mb-4">
-              <h2 className="text-xl mb-2">Create your Agent account</h2>
-
-              <p className="text-xs text-gray-300">
-                Enter your details to access the agent portal
-              </p>
+              <div className="mb-4">
+                <h2 className="text-xl mb-2 text-center">
+                  Create your account
+                </h2>
+              </div>
             </div>
 
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -142,17 +140,6 @@ const SignUp = () => {
                   )}
                 </Field>
 
-                {/* <Field>
-                  <FieldLabel htmlFor="phoneNumber">Phone Number</FieldLabel>
-
-                  <Input
-                    id="phoneNumber"
-                    placeholder="Phone Number"
-                    className="py-5"
-                    {...form.register("phoneNumber")}
-                  />
-                </Field> */}
-
                 <Field>
                   <FieldLabel htmlFor="password">Password</FieldLabel>
 
@@ -173,7 +160,7 @@ const SignUp = () => {
                   {loading ? <Loader /> : "create account"}
                 </Button>
 
-                {/* <div className="flex items-center gap-4 my-4">
+                <div className="flex items-center gap-4 my-4">
                   <span className="flex-1 border-t border-gray-300" />
 
                   <span className="text-sm text-gray-500 whitespace-nowrap">
@@ -184,7 +171,10 @@ const SignUp = () => {
                 </div>
 
                 <div className="w-full  ">
-                  <Button type="button" className="w-full h-11">
+                  <Button
+                    type="button"
+                    className="h-11 w-full border-gray-700 bg-transparent text-white transition-colors hover:bg-gray-800 hover:text-white"
+                  >
                     <svg
                       className="mr-2 h-5 w-5"
                       viewBox="0 0 24 24"
@@ -197,7 +187,7 @@ const SignUp = () => {
                     </svg>
                     Google
                   </Button>
-                </div> */}
+                </div>
 
                 <p className="text-center text-xs text-gray-400">
                   Already have an account?{" "}

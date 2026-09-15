@@ -1,3 +1,4 @@
+import type { OnboardingFormData } from "@/common/Validation";
 import { Button } from "@/components/ui/button";
 import {
   Field,
@@ -7,109 +8,147 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Upload } from "lucide-react";
+import type { UseFormReturn } from "react-hook-form";
 
 export const CompanyStep = ({
   form,
   handleNext,
 }: {
-  form: any;
-  handleNext: any;
+  form: UseFormReturn<OnboardingFormData>;
+  handleNext: () => void;
 }) => {
   return (
     <div>
       <div>
-        <h1 className="text-2xl capitalize font-bold ">
-          tell us about your company{" "}
+        <h1 className="text-2xl font-bold capitalize">
+          Tell us about your company
         </h1>
-        <p className="text-base ">
-          just a few details to personalize your cworkspace{" "}
+
+        <p className="text-base">
+          Just a few details to personalize your workspace
         </p>
       </div>
-      <form className="space-y-5">
+
+      <div className="space-y-5">
         <FieldGroup>
+          {/* Company Name */}
           <Field>
-            <FieldLabel htmlFor="fullName">Company Name</FieldLabel>
+            <FieldLabel htmlFor="companyName">
+              Company Name
+            </FieldLabel>
 
             <Input
-              id=""
+              id="companyName"
               placeholder="Company Name"
-              className="py-5 border border-[#464554]"
-              {...form.register("fullName")}
+              className="border border-[#464554] py-5"
+              {...form.register("name")}
             />
 
-            {form.formState.errors.fullName && (
-              <FieldError errors={[form.formState.errors.fullName]} />
+            {form.formState.errors.name && (
+              <FieldError
+                errors={[form.formState.errors.name]}
+              />
             )}
           </Field>
 
+          {/* Company Email */}
           <Field>
-            <FieldLabel htmlFor="email">Company Email</FieldLabel>
+            <FieldLabel htmlFor="email">
+              Company Email
+            </FieldLabel>
 
             <Input
               id="email"
               type="email"
               placeholder="Company Email"
-              className="py-5 border border-[#464554]"
+              className="border border-[#464554] py-5"
               {...form.register("email")}
             />
 
             {form.formState.errors.email && (
-              <FieldError errors={[form.formState.errors.email]} />
+              <FieldError
+                errors={[form.formState.errors.email]}
+              />
             )}
           </Field>
 
-          <div className="flex gap-2 justify-between">
+        
+          <div className="flex justify-between gap-2">
             <Field>
-              <FieldLabel htmlFor="password">Phone Number </FieldLabel>
+              <FieldLabel htmlFor="phoneNumber">
+                Phone Number
+              </FieldLabel>
 
               <Input
-                id="password"
+                id="phoneNumber"
                 type="text"
-                placeholder="phone number "
-                className="py-5 border border-[#464554]"
+                placeholder="Phone number"
+                className="border border-[#464554] py-5"
                 {...form.register("phoneNumber")}
               />
+               {form.formState.errors.phoneNumber && (
+              <FieldError
+                errors={[form.formState.errors.phoneNumber]}
+              />
+            )}
             </Field>
+
             <Field>
-              <FieldLabel htmlFor="phoneNumber">Website </FieldLabel>
+              <FieldLabel htmlFor="website">
+                Website
+              </FieldLabel>
 
               <Input
                 id="website"
                 placeholder="https://yourcompany.com"
-                className="py-5 border border-[#464554]"
+                className="border border-[#464554] py-5"
                 {...form.register("website")}
               />
+              
             </Field>
           </div>
 
+       
           <Field>
-            <FieldLabel htmlFor="description">Company Description</FieldLabel>
+            <FieldLabel htmlFor="description">
+              Company Description
+            </FieldLabel>
 
             <textarea
               id="description"
               placeholder="Tell us a little about your company"
-              className="min-h-32 w-full rounded-md border  border-[#464554] bg-transparent p-3"
+              className="min-h-32 w-full rounded-md border border-[#464554] bg-transparent p-3"
               {...form.register("description")}
             />
-          </Field>
-          {/* company logo */}
 
+            {form.formState.errors.description && (
+              <FieldError
+                errors={[form.formState.errors.description]}
+              />
+            )}
+          </Field>
+
+         
           <Field>
-            <FieldLabel htmlFor="companyLogo">Company Logo</FieldLabel>
+            <FieldLabel htmlFor="companyLogo">
+              Company Logo
+            </FieldLabel>
 
             <label
               htmlFor="companyLogo"
-              className=" cursor-pointer rounded-lg border border-[#464554] p-4 "
+              className="cursor-pointer rounded-lg border border-[#464554] p-4"
             >
               <div className="flex gap-4">
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-[#464554]">
                   <Upload className="size-5 text-white/70" />
                 </div>
 
-                <div className="">
+                <div>
                   <p className="text-sm">
                     Drop your company logo here or{" "}
-                    <span className="text-[#6366F1]">browse</span>
+                    <span className="text-[#6366F1]">
+                      browse
+                    </span>
                   </p>
 
                   <p className="mt-1 text-xs text-white/40">
@@ -121,25 +160,25 @@ export const CompanyStep = ({
                     type="file"
                     accept="image/png,image/jpeg,image/svg+xml"
                     className="hidden"
-                    {...form.register("companyLogo")}
+                    // {...form.register("companyLogo")}
                   />
                 </div>
               </div>
             </label>
           </Field>
 
-          <div className="flex justify-end">
+          {/* Continue */}
+          <div className="mb-4 flex justify-end">
             <Button
               type="button"
-              //   disabled={loading}
-              className=" bg-[#6366F1] py-5 hover:bg-[#6366F1] capitalize"
+              className="bg-[#6366F1] py-5 capitalize hover:bg-[#6366F1]"
               onClick={handleNext}
             >
-              continue
-            </Button>{" "}
+              Continue
+            </Button>
           </div>
         </FieldGroup>
-      </form>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { AppLayout } from "@/components/layout/AppLayout";
+import ForgotPassword from "@/pages/Auth/ForgotPassword";
 import Login from "@/pages/Auth/Login";
 
 import RoleSelection from "@/pages/Auth/roleSelection";
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/sign-in",
     element: <Login />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword/>,
   },
   {
     path: "/verify-otp",
