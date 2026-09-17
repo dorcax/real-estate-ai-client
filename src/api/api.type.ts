@@ -1,16 +1,15 @@
 export const Role = {
   ADMIN: "ADMIN",
-  OWNER:'OWNER',
-  CUSTOMER:'CUSTOMER',
+  OWNER: "OWNER",
+  CUSTOMER: "CUSTOMER",
   AGENT: "AGENT",
 } as const;
 
-export type Role =
-  (typeof Role)[keyof typeof Role];
+export type Role = (typeof Role)[keyof typeof Role];
 
 export type AuthState = {
   token?: string;
-  user?:string
+  user?: string;
   role?: Role;
   success?: boolean;
   companyId?: string;
@@ -19,14 +18,14 @@ export type AuthState = {
 
 export type Response = {
   message: string;
-  fullName: string; 
+  fullName: string;
   email: string;
 };
 
-export type loginResponse={
-message:string,
-token:string
-}
+export type loginResponse = {
+  message: string;
+  token: string;
+};
 
 export type signUpData = {
   fullName: string;
@@ -53,7 +52,14 @@ export type resetPasswordData = {
 export type resendOtpData = {
   email: string;
 };
+
 export type verifyOtpData = {
   code: string;
-  email:string
+  email: string;
+};
+
+export type userResponse = {
+  id: string;
+  name: string;
+  email: string;
 };

@@ -1,10 +1,10 @@
-import type { forgotPasswordData, loginResponse, resendOtpData, resetPasswordData, Response, signInData, signUpData, verifyOtpData } from "./api.type";
+import type { forgotPasswordData, loginResponse, resendOtpData, resetPasswordData, Response, signInData, signUpData, userResponse, verifyOtpData } from "./api.type";
 import { api } from "./base";
 
 
 
 export const authApi = api.injectEndpoints({
-  endpoints: ({ mutation }) => ({
+  endpoints: ({ mutation,query }) => ({
     
     SignUp: mutation<Response, signUpData>({
       query: (body) => ({
@@ -59,7 +59,18 @@ export const authApi = api.injectEndpoints({
       }),
     }),
 
+
+    
+  getUser:query<userResponse,void>({
+    query:()=>({
+      url:'/auth/auth-me',
+      method:"GET",
+
+    })
+
+  })
   }),
+
 });
 
 export const {
@@ -68,5 +79,6 @@ export const {
   useForgotPasswordMutation,
   useResetPasswordMutation,
   useResendOtpMutation,
-  useVerifyOtpMutation
+  useVerifyOtpMutation,
+  useGetUserQuery
 } = authApi;

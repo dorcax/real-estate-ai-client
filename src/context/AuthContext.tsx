@@ -1,9 +1,7 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { useGetUserQuery } from "@/api/auth.api";
+import { useAppSelector } from "@/hooks/store-hook";
+import { skipToken } from "@reduxjs/toolkit/query";
+import { createContext, useContext } from "react";
 
 type User = {
   id: string;
@@ -19,32 +17,28 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export const AuthProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const token = useAppSelector((state: any) => state.token);
 
-  useEffect(() => {
-    // Ask backend who is logged in
-    // fetchMe()
-  }, []);
+  const { data, isLoading, isFetching} = useGetUserQuery(
+    token ? undefined : skipToken,
+  );
+
+ 
 
   return (
     <AuthContext.Provider
       value={{
-        user,
-        isLoading,
-        isAuthenticated: !!user,
+        user: data ?? null,
+        isLoading: isLoading || isFetching,
+        isAuthenticated: !!data,
+       
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
-
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
