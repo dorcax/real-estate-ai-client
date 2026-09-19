@@ -19,7 +19,7 @@ export const CompanyStep = ({
 }) => {
   return (
     <div>
-      <div>
+      <div className="mb-5">
         <h1 className="text-2xl font-bold capitalize">
           Tell us about your company
         </h1>

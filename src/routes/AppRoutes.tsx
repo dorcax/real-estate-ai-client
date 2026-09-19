@@ -7,7 +7,8 @@ import SignUp from "@/pages/Auth/signUp";
 import VerifyOtp from "@/pages/Auth/verifyOtp";
 import { Analytics } from "@/pages/Dashboard/Analytics";
 import Billing from "@/pages/Dashboard/Billing";
-import Customer from "@/pages/Dashboard/Customer";
+import CustomerList from "@/pages/Dashboard/Customer";
+
 import MarketPlace from "@/pages/Dashboard/MarketPlace";
 import Overview from "@/pages/Dashboard/overview";
 import PropertyListing from "@/pages/Dashboard/PropertyListing";
@@ -15,6 +16,7 @@ import TeamPage from "@/pages/Dashboard/Team";
 import ViewProperty from "@/pages/Dashboard/ViewProperty";
 import OnboardingLayout from "@/pages/Onboarding/OnboardingLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ProtectedRoute } from "./ProtectedRoutes";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/forgot-password",
-    element: <ForgotPassword/>,
+    element: <ForgotPassword />,
   },
   {
     path: "/verify-otp",
@@ -43,7 +45,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute allowedRoles={['OWNER']}>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,
@@ -54,27 +60,27 @@ const router = createBrowserRouter([
         element: <Analytics />,
       },
       {
-        path:'property-listing',
+        path: "property-listing",
         element: <PropertyListing />,
       },
       {
-        path:'view-property/:id',
+        path: "view-property/:id",
         element: <ViewProperty />,
       },
       {
-        path:'marketplace',
+        path: "marketplace",
         element: <MarketPlace />,
       },
       {
-        path:'customer',
-        element: <Customer />,
+        path: "customer",
+        element: <CustomerList />,
       },
       {
-        path:'billing',
+        path: "billing",
         element: <Billing />,
       },
       {
-        path:'Team',
+        path: "Team",
         element: <TeamPage />,
       },
     ],

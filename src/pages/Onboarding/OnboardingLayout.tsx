@@ -9,6 +9,7 @@ import ReadyStep from "./onboardingComponent/ReadyStep";
 import { onboardingSchema, type OnboardingFormData } from "@/common/Validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCompleteOnboardingMutation } from "@/api/onboarding.api";
+import { toast } from "react-toastify";
 
 const Onboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -59,6 +60,7 @@ const Onboarding = () => {
       const response = await completeOnboarding(data).unwrap();
 
       console.log(response);
+      toast.success(response.message)
     } catch (error) {
       console.error(error);
     }
@@ -109,15 +111,9 @@ const Onboarding = () => {
               />
             )}
 
-            {currentStep === 2 && (
-              <TeamStep
-                form={form}
-                handleNext={handleNext}
-                handleBack={handleBack}
-              />
-            )}
+         
 
-            {currentStep === 3 && <ReadyStep />}
+            {currentStep === 2 && <ReadyStep />}
           </form>
         </div>
       </section>

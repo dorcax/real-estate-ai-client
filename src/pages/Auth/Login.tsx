@@ -4,9 +4,13 @@ import Loader from "@/common/Loader";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { dashboardFor } from "@/constants/getDashboard";
+import { useAuth } from "@/context/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
 
@@ -20,7 +24,11 @@ type LoginSchema = z.infer<typeof signInSchema>;
 const Login = () => {
   const [signIn, { isLoading }] = useSignInMutation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const { isAuthenticated, isLoading: authLoading, role } = useAuth();
+
+  
   const {
     register,
     handleSubmit,
@@ -33,6 +41,17 @@ const Login = () => {
     },
   });
 
+  // useEffect(() => {
+  //   console.log("LOGIN AUTH STATE:", {
+  //     isAuthenticated,
+  //     authLoading,
+  //     role,
+  //   });
+  //   if (!authLoading && isAuthenticated && role) {
+  //     navigate(dashboardFor(role), { replace: true });
+  //   }
+  // }, [isAuthenticated, authLoading, role, navigate]);
+
   const onSubmit = async (data: LoginSchema) => {
     try {
       const res = await signIn(data).unwrap();
@@ -40,6 +59,8 @@ const Login = () => {
       dispatch(setAuth({ token: res.token }));
 
       toast.success(res.message);
+
+      navigate()
 
       console.log("Login data:", data);
     } catch (error: any) {

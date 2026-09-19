@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { RootState } from "@/api/store";
 
 export const api = createApi({
   reducerPath: "api",
@@ -6,16 +7,18 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
 
-    prepareHeaders: (headers) => {
-      const savedAuth = localStorage.getItem("auth");
+    prepareHeaders: (headers,{getState}) => {
+      // const savedAuth = localStorage.getItem("auth");
 
-      if (savedAuth) {
-        const auth = JSON.parse(savedAuth);
+     const state = getState() as RootState;
+     const token = state.auth.token;
 
-        if (auth.token) {
-          headers.set("Authorization", `Bearer ${auth.token}`);
+
+
+        if (token) {
+          headers.set("Authorization", `Bearer ${token}`);
         }
-      }
+      
 
       headers.set("Content-Type", "application/json");
 
@@ -37,3 +40,7 @@ export const api = createApi({
 
   endpoints: () => ({}),
 });
+function getState(): any {
+  throw new Error("Function not implemented.");
+}
+

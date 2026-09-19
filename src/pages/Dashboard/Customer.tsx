@@ -25,7 +25,7 @@ export const customerCard = [
     changeValueText: "3%",
   },
 ];
-const Customer = () => {
+const CustomerList = () => {
       const data: Customer[] = customers;
   return (
     <main className="text-[#dae2fd] space-y-5">
@@ -70,4 +70,4 @@ const Customer = () => {
   );
 };
 
-export default Customer;
+export default CustomerList;

@@ -757,10 +757,7 @@ export const teamData = [
       label: "Add details",
       value: "details",
     },
-    {
-      label: "Team",
-      value: "team",
-    },
+  
     {
       label: "Ready",
       value: "ready",
