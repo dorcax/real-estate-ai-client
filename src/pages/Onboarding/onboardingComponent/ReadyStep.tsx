@@ -1,15 +1,12 @@
 import { Button } from "@/components/ui/button";
 import {
   Building2,
-  HouseIcon,
+  Loader,
   MapIcon,
-  MoveRight,
-  User,
-  UserIcon,
+  UserIcon
 } from "lucide-react";
-import { Link } from "react-router-dom";
 
-const ReadyStep = () => {
+const ReadyStep = ({loading}:{loading:any}) => {
   return (
     <section className="space-y-3">
       <header>
@@ -53,10 +50,11 @@ const ReadyStep = () => {
       {/* button  */}
 
       <div className="flex  justify-end">
-        <Link to="/dashboard">
-         <Button className="bg-[#c0c1ff]  text-[#1000A9] capitalize text-sm hover:bg-[#c0c1ff]">
-          go to dashboard <MoveRight />
-        </Button> </Link>
+        {/* <Link to="/dashboard"> */}
+         <Button type="submit" className="bg-[#c0c1ff]  text-[#1000A9] capitalize text-sm hover:bg-[#c0c1ff]" disabled={loading}>
+          loading ? <Loader/> :'submit' 
+        </Button> 
+        {/* </Link> */}
        
       </div>
     </section>

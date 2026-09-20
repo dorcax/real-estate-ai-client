@@ -26,9 +26,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isAuthenticated, isLoading: authLoading, role } = useAuth();
+  const { user } = useAuth();
 
-  
   const {
     register,
     handleSubmit,
@@ -41,31 +40,26 @@ const Login = () => {
     },
   });
 
-  // useEffect(() => {
-  //   console.log("LOGIN AUTH STATE:", {
-  //     isAuthenticated,
-  //     authLoading,
-  //     role,
-  //   });
-  //   if (!authLoading && isAuthenticated && role) {
-  //     navigate(dashboardFor(role), { replace: true });
-  //   }
-  // }, [isAuthenticated, authLoading, role, navigate]);
-
   const onSubmit = async (data: LoginSchema) => {
     try {
       const res = await signIn(data).unwrap();
+
+      console.log("LOGIN RESPONSE:", res);
+      console.log("ROLE:", res.role);
 
       dispatch(setAuth({ token: res.token }));
 
       toast.success(res.message);
 
-      navigate()
+      if (res.role === "OWNER" && !user?.company?.id) {
+        navigate("/onboarding", { replace: true });
+        return;
+      }
 
-      console.log("Login data:", data);
+      navigate(dashboardFor(res.role), { replace: true });
     } catch (error: any) {
+      console.error("LOGIN FAILED:", error);
       toast.error(error?.data?.message);
-      console.error("Login failed:", error);
     }
   };
 

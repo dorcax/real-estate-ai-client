@@ -1,20 +1,22 @@
+import { useCompleteOnboardingMutation } from "@/api/onboarding.api";
+import { onboardingSchema, type OnboardingFormData } from "@/common/Validation";
 import { onboardingTeam } from "@/constants/data";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { CompanyStep } from "../Onboarding/onboardingComponent/CompanyStep";
 import OnboardingHeader from "./OnboardingHeader";
 import { DetailsStep } from "./onboardingComponent/CompanyDetail";
-import { TeamStep } from "./onboardingComponent/TeamStep";
 import ReadyStep from "./onboardingComponent/ReadyStep";
-import { onboardingSchema, type OnboardingFormData } from "@/common/Validation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useCompleteOnboardingMutation } from "@/api/onboarding.api";
-import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Onboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
+
   const [completeOnboarding, { isLoading: loading }] =
     useCompleteOnboardingMutation();
+    const navigate =useNavigate()
 
   const form = useForm<OnboardingFormData>({
     resolver: zodResolver(onboardingSchema),
@@ -22,19 +24,19 @@ const Onboarding = () => {
     defaultValues: {
       name: "",
       email: "",
-      website: "",
+      
       description: "",
       address: "",
       state: "",
       city: "",
       currency: "",
-      timeZone: "",
+      timezone: "",
     },
   });
 
   const stepFields = [
     ["name", "email", "website", "description", "phoneNumber"],
-    ["address", "city", "state", "country", "currency", "timeZone"],
+    ["address", "city", "state", "country", "currency", "timezone"],
 
     [],
   ] as const;
@@ -113,7 +115,7 @@ const Onboarding = () => {
 
          
 
-            {currentStep === 2 && <ReadyStep />}
+            {currentStep === 2 && <ReadyStep loading={loading} />}
           </form>
         </div>
       </section>

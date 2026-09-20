@@ -65,6 +65,9 @@ export type userResponse = {
   name: string;
   email: string;
   role: Role;
+  comapany:{
+    id:string
+  }
 };
 
 
@@ -75,6 +78,9 @@ export type User = {
   name: string;
   email: string;
   role: Role;
+  company:{
+    id:string
+  }|null
 };
 
 export type AuthContextType = {

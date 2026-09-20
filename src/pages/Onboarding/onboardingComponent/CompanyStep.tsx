@@ -33,9 +33,7 @@ export const CompanyStep = ({
         <FieldGroup>
           {/* Company Name */}
           <Field>
-            <FieldLabel htmlFor="companyName">
-              Company Name
-            </FieldLabel>
+            <FieldLabel htmlFor="companyName">Company Name</FieldLabel>
 
             <Input
               id="companyName"
@@ -45,39 +43,30 @@ export const CompanyStep = ({
             />
 
             {form.formState.errors.name && (
-              <FieldError
-                errors={[form.formState.errors.name]}
-              />
+              <FieldError errors={[form.formState.errors.name]} />
             )}
           </Field>
 
-          {/* Company Email */}
-          <Field>
-            <FieldLabel htmlFor="email">
-              Company Email
-            </FieldLabel>
-
-            <Input
-              id="email"
-              type="email"
-              placeholder="Company Email"
-              className="border border-[#464554] py-5"
-              {...form.register("email")}
-            />
-
-            {form.formState.errors.email && (
-              <FieldError
-                errors={[form.formState.errors.email]}
-              />
-            )}
-          </Field>
-
-        
           <div className="flex justify-between gap-2">
+            {/* Company Email */}
             <Field>
-              <FieldLabel htmlFor="phoneNumber">
-                Phone Number
-              </FieldLabel>
+              <FieldLabel htmlFor="email">Company Email</FieldLabel>
+
+              <Input
+                id="email"
+                type="email"
+                placeholder="Company Email"
+                className="border border-[#464554] py-5"
+                {...form.register("email")}
+              />
+
+              {form.formState.errors.email && (
+                <FieldError errors={[form.formState.errors.email]} />
+              )}
+            </Field>
+
+            <Field>
+              <FieldLabel htmlFor="phoneNumber">Phone Number</FieldLabel>
 
               <Input
                 id="phoneNumber"
@@ -86,33 +75,14 @@ export const CompanyStep = ({
                 className="border border-[#464554] py-5"
                 {...form.register("phoneNumber")}
               />
-               {form.formState.errors.phoneNumber && (
-              <FieldError
-                errors={[form.formState.errors.phoneNumber]}
-              />
-            )}
-            </Field>
-
-            <Field>
-              <FieldLabel htmlFor="website">
-                Website
-              </FieldLabel>
-
-              <Input
-                id="website"
-                placeholder="https://yourcompany.com"
-                className="border border-[#464554] py-5"
-                {...form.register("website")}
-              />
-              
+              {form.formState.errors.phoneNumber && (
+                <FieldError errors={[form.formState.errors.phoneNumber]} />
+              )}
             </Field>
           </div>
 
-       
           <Field>
-            <FieldLabel htmlFor="description">
-              Company Description
-            </FieldLabel>
+            <FieldLabel htmlFor="description">Company Description</FieldLabel>
 
             <textarea
               id="description"
@@ -122,17 +92,12 @@ export const CompanyStep = ({
             />
 
             {form.formState.errors.description && (
-              <FieldError
-                errors={[form.formState.errors.description]}
-              />
+              <FieldError errors={[form.formState.errors.description]} />
             )}
           </Field>
 
-         
           <Field>
-            <FieldLabel htmlFor="companyLogo">
-              Company Logo
-            </FieldLabel>
+            <FieldLabel htmlFor="companyLogo">Company Logo</FieldLabel>
 
             <label
               htmlFor="companyLogo"
@@ -146,9 +111,7 @@ export const CompanyStep = ({
                 <div>
                   <p className="text-sm">
                     Drop your company logo here or{" "}
-                    <span className="text-[#6366F1]">
-                      browse
-                    </span>
+                    <span className="text-[#6366F1]">browse</span>
                   </p>
 
                   <p className="mt-1 text-xs text-white/40">

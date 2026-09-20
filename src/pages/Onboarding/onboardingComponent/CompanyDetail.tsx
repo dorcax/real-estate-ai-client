@@ -23,7 +23,7 @@ export const DetailsStep = ({
 
       <FieldGroup>
         <Field>
-          <FieldLabel htmlFor="website">Business addres</FieldLabel>
+          <FieldLabel htmlFor="website">Bussiness address</FieldLabel>
 
           <Input
             id="website"
@@ -75,7 +75,7 @@ export const DetailsStep = ({
         {/* country  */}
         <div className="flex gap-2 justify-between">
           <Field>
-            <FieldLabel htmlFor="password">country </FieldLabel>
+            <FieldLabel htmlFor="">country </FieldLabel>
 
             <Input
               id="country"
@@ -94,14 +94,14 @@ export const DetailsStep = ({
             <FieldLabel htmlFor="phoneNumber">TimeZone </FieldLabel>
 
             <Input
-              id="timeZone"
+              id="timezone"
               placeholder="timeZone"
               className="py-5 border border-[#464554]"
-              {...form.register("timeZone")}
+              {...form.register("timezone")}
             />
-             {form.formState.errors.timeZone && (
+             {form.formState.errors.timezone && (
               <FieldError
-                errors={[form.formState.errors.timeZone]}
+                errors={[form.formState.errors.timezone]}
               />
             )}
           </Field>
