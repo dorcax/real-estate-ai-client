@@ -1,4 +1,4 @@
-import { useSignInMutation } from "@/api/auth.api";
+import { useForgotPasswordMutation } from "@/api/auth.api";
 import Loader from "@/common/Loader";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
@@ -16,7 +16,7 @@ const ForgotPasswordSchema = z.object({
 type ForgotPasswordSchema = z.infer<typeof ForgotPasswordSchema>;
 
 const ForgotPassword = () => {
-  const [signIn, { isLoading }] = useSignInMutation();
+  const [forgotPassword, { isLoading }] = useForgotPasswordMutation()
  
 
   const {
@@ -32,7 +32,7 @@ const ForgotPassword = () => {
 
   const onSubmit = async (data: ForgotPasswordSchema) => {
     try {
-      const res = await signIn(data).unwrap();
+      const res = await forgotPassword(data).unwrap();
 
       toast.success(res.message);
 

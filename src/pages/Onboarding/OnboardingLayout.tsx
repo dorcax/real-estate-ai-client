@@ -9,14 +9,12 @@ import { CompanyStep } from "../Onboarding/onboardingComponent/CompanyStep";
 import OnboardingHeader from "./OnboardingHeader";
 import { DetailsStep } from "./onboardingComponent/CompanyDetail";
 import ReadyStep from "./onboardingComponent/ReadyStep";
-import { useNavigate } from "react-router-dom";
 
 const Onboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const [completeOnboarding, { isLoading: loading }] =
     useCompleteOnboardingMutation();
-    const navigate =useNavigate()
 
   const form = useForm<OnboardingFormData>({
     resolver: zodResolver(onboardingSchema),
@@ -24,7 +22,6 @@ const Onboarding = () => {
     defaultValues: {
       name: "",
       email: "",
-      
       description: "",
       address: "",
       state: "",
@@ -35,20 +32,18 @@ const Onboarding = () => {
   });
 
   const stepFields = [
-    ["name", "email", "website", "description", "phoneNumber"],
+    ["name", "email", "description", "phoneNumber"],
     ["address", "city", "state", "country", "currency", "timezone"],
 
     [],
   ] as const;
 
   const handleNext = async () => {
-  
-      const fields = stepFields[currentStep];
-      if (fields.length > 0) {
-        const isValid = await form.trigger(fields);
-        if (!isValid) return;
-      }
-    
+    const fields = stepFields[currentStep];
+    if (fields.length > 0) {
+      const isValid = await form.trigger(fields);
+      if (!isValid) return;
+    }
 
     setCurrentStep((prev) => prev + 1);
   };
@@ -62,7 +57,7 @@ const Onboarding = () => {
       const response = await completeOnboarding(data).unwrap();
 
       console.log(response);
-      toast.success(response.message)
+      toast.success(response.message);
     } catch (error) {
       console.error(error);
     }
@@ -112,8 +107,6 @@ const Onboarding = () => {
                 handleBack={handleBack}
               />
             )}
-
-         
 
             {currentStep === 2 && <ReadyStep loading={loading} />}
           </form>

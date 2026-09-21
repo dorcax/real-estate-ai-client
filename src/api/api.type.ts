@@ -37,7 +37,7 @@ export type signUpData = {
 
 export type signInData = {
   email: string;
-  password: string;
+  password:string;
 };
 
 export type forgotPasswordData = {
@@ -65,7 +65,7 @@ export type userResponse = {
   name: string;
   email: string;
   role: Role;
-  comapany:{
+  company:{
     id:string
   }
 };

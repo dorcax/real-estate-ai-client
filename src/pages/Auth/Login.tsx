@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { dashboardFor } from "@/constants/getDashboard";
 import { useAuth } from "@/context/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";

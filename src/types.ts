@@ -115,7 +115,7 @@ export type BillingHistory = {
 }
 
 
-export type TeamRole = "Owner" | "Admin" | "Agent"
+export type TeamRole = "OWNER" | "ADMIN" | "CUSTOMER"
 
 export type MemberStatus = "Active" | "Inactive"
 

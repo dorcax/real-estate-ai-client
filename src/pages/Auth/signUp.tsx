@@ -1,4 +1,3 @@
-import { Role, type Role as RoleType } from "@/api/api.type";
 import { useSignUpMutation } from "@/api/auth.api";
 import Loader from "@/common/Loader";
 import { Button } from "@/components/ui/button";
@@ -10,9 +9,8 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MoveLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
 
@@ -26,8 +24,8 @@ type registerSchema = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
   const [signUp, { isLoading: loading }] = useSignUpMutation();
-  const [searchParams] = useSearchParams();
-  const roleParam = searchParams.get("role");
+  // const [searchParams] = useSearchParams();
+  // const roleParam = searchParams.get("role");
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 

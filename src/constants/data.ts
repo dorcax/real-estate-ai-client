@@ -1,18 +1,17 @@
 import type { Property } from "@/components/property/data-column";
+import type { TeamMember } from "@/types";
 import {
   IconBuildingEstate,
-  IconMessages,
   IconCalendarCheck,
   IconChartLine,
+  IconMessages,
   IconPhoneCall,
 } from "@tabler/icons-react";
-import { MessageCircle, Zap, PhoneCall, Headset, Home, User, Shield, Headphones, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
-  UserRoundPlus,
-  WandSparkles,
   BadgeDollarSign,
-  Banknote,
+  Banknote, Headphones, Headset, Home, Mail, MessageCircle, PhoneCall, Shield, User, UserRoundPlus,
+  WandSparkles, Zap
 } from "lucide-react";
 export const dashboardStats = [
   {
@@ -700,14 +699,14 @@ export const teamStats =[
     },
   ]
 
-export const teamData = [
+export const teamData:TeamMember[] = [
 
 {
       id: 1,
       name: "Daniel Adeyemi",
       email: "daniel@settlla.com",
       avatar: "/images/team/daniel.jpg",
-      role: "Owner",
+      role: "OWNER",
       assignedProperties: 42,
       activeLeads: 12,
       status: "Active",
@@ -718,7 +717,7 @@ export const teamData = [
       name: "Sarah Okafor",
       email: "sarah.o@settlla.com",
       avatar: "/images/team/sarah.jpg",
-      role: "Admin",
+      role: "ADMIN",
       assignedProperties: 156,
       activeLeads: 45,
       status: "Active",
@@ -728,8 +727,8 @@ export const teamData = [
       id: 3,
       name: "Chinedu Obi",
       email: "chinedu@settlla.com",
-      avatar: null,
-      role: "Agent",
+      avatar: "/images/team/sarah.jpg",
+      role: "CUSTOMER",
       assignedProperties: 14,
       activeLeads: 28,
       status: "Inactive",
@@ -740,7 +739,7 @@ export const teamData = [
       name: "Ada Williams",
       email: "ada.w@settlla.com",
       avatar: "/images/team/ada.jpg",
-      role: "Agent",
+      role: "CUSTOMER",
       assignedProperties: 31,
       activeLeads: 52,
       status: "Active",

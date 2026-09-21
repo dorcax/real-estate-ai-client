@@ -1,4 +1,3 @@
-import { useGetUserQuery } from "@/api/auth.api";
 import { dashboardFor } from "@/constants/getDashboard";
 import { useAuth } from "@/context/AuthContext";
 import { Navigate, useLocation } from "react-router-dom";
@@ -15,8 +14,6 @@ export const ProtectedRoute = ({
   const { user, isAuthenticated, isLoading, role } = useAuth();
 
   const location = useLocation();
-
-  const { data } = useGetUserQuery();
 
   if (isLoading) {
     return <div>Loading...</div>;
