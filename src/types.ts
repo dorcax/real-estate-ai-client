@@ -9,69 +9,51 @@ export type PropertyStatus =
   | "SOLD"
   | "RENTED";
 
-export const propertyPurpose = [
-  { label: "Rent", value: "rent" },
-  { label: "Sell", value: "sell" },
-  { label: "Lease", value: "lease" },
+export const propertyType = [
+  { label: "House", value: "HOUSE" },
+  { label: "Land", value: "LAND" },
+  { label: "Apartment", value: "APARTMENT" },
+  { label: "Office", value: "OFFICE" },
+  { label: "Shop", value: "SHOP" },
+  { label: "Warehouse", value: "WAREHOUSE" },
+  { label: "Commercial", value: "COMMERCIAL" },
 ];
 
-export const propertyType = [
-  { label: "House", value: "house" },
-  { label: "Apartment", value: "apartment" },
-  { label: "Land", value: "land" },
-  { label: "Office", value: "office" },
-  { label: "Shop", value: "shop" },
+export const propertyPurpose = [
+  { label: "Rent", value: "RENT" },
+  { label: "Sell", value: "SELL" },
+  { label: "Lease", value: "LEASE" },
 ];
 
 export type PropertyFormValues = {
   title: string;
-
   description: string;
-
   price: number;
-
-  currency: string;
-
+ 
   address: string;
-
-  city?: string;
-
+  city: string;
   state: string;
-
-  country: string;
 
   postalCode?: string;
 
-  latitude?: number;
-
-  longitude?: number;
-
   propertyType: PropertyType;
-
   propertyPurpose: PropertyPurpose;
-
-  propertyStatus: PropertyStatus;
+ 
 
   bedrooms?: number;
-
   bathrooms?: number;
-
   toilets?: number;
-
   parkingSpace?: number;
 
   landSize?: number;
-
   buildingSize?: number;
-
   yearBuilt?: number;
 
   amenities: string[];
 
-  isFeatured: boolean;
-  active: boolean;
+  attachmentsId: string[];
 
-  publishedAt?: Date;
+  isFeatured: boolean;
 };
 
 export type PropertyImage = {
@@ -100,7 +82,7 @@ export type Property = {
   parkingSpace: number;
   landSize: number;
 
-  images: PropertyImage[];
+  attachmentsId: PropertyImage[];
 };
 
 

@@ -42,6 +42,11 @@ navMain:[
     url: "/dashboard/analytics",
     icon: IconChartBar,
   },
+    {
+    title: "create property",
+    url: "/dashboard/create-property",
+    icon: IconUsers,
+  },
   {
     title: "Listings",
     url: "/dashboard/property-listing",
@@ -52,11 +57,7 @@ navMain:[
     url: "/dashboard/marketplace",
     icon: IconListDetails,
   },
-  {
-    title: "Call Log",
-    url: "#",
-    icon: IconUsers,
-  },
+
   {
     title: "Team",
     url: "/dashboard/team",

@@ -3,7 +3,7 @@ import { usePopUpContext } from "@/context/PopUpContext";
 import { ChevronRight, Search, Plus, Bell } from "lucide-react";
 
 import { useLocation } from "react-router-dom";
-import CreateProperty from "../Dialog/property/CreateProperty";
+import CreateProperty from "../property/CreateProperty";
 
 const AppHeader = () => {
   const { pathname } = useLocation();

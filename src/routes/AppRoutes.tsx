@@ -17,6 +17,8 @@ import ViewProperty from "@/pages/Dashboard/ViewProperty";
 import OnboardingLayout from "@/pages/Onboarding/OnboardingLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoutes";
+import PropertyForm from "@/components/Dialog/property/PropertyForm";
+import CreateProperty from "@/components/property/CreateProperty";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: "Team",
         element: <TeamPage />,
+      },
+      {
+        path: "create-property",
+        element: <CreateProperty />,
       },
     ],
   },

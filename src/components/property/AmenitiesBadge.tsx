@@ -1,56 +1,49 @@
-import {
-  Snowflake,
-  PawPrint,
-  ShieldCheck,
-  WashingMachine,
-  Warehouse,
-  Sun,
-  House,
-  Wifi,
-
-} from "lucide-react";
-
-const iconMap = {
-  "Air Conditioning": Snowflake,
-  "Pet Friendly": PawPrint,
-  "Security System": ShieldCheck,
-  Laundry: WashingMachine,
-  Storage: Warehouse,
-  "Solar Panels": Sun,
-  "Smart Home": House,
-  "Sea View": Wifi,
-};
-
 type AmenityBadgeProps = {
   amenities: string[];
+  selectedAmenities: string[];
+  onChange: (amenities: string[]) => void;
 };
 
-const AmenityBadge = ({ amenities }: AmenityBadgeProps) => {
+const AmenityBadge = ({
+  amenities,
+  selectedAmenities,
+  onChange,
+}: AmenityBadgeProps) => {
+  const handleSelect = (amenity: string) => {
+    if (selectedAmenities.includes(amenity)) {
+      onChange(
+        selectedAmenities.filter((item) => item !== amenity),
+      );
+    } else {
+      onChange([...selectedAmenities, amenity]);
+    }
+  };
+
   return (
     <div className="flex flex-wrap gap-2">
       {amenities.map((amenity) => {
-        const Icon = iconMap[amenity as keyof typeof iconMap];
+        const selected = selectedAmenities.includes(amenity);
 
         return (
-          <div
+          <button
             key={amenity}
-            className="
-              flex items-center gap-1
+            type="button"
+            onClick={() => handleSelect(amenity)}
+            className={`
               rounded-full
               border
-              
-              bg-[#2d3449] text-[#dae2fd]  border-[#464554]
               px-3
-              py-1
-              text-xs
-            
-              shadow-sm
-            "
+              py-2
+              text-sm
+              ${
+                selected
+                  ? "bg-[#c0c1ff] text-[#1000A9] border-[#c0c1ff]"
+                  : "bg-[#171f33] text-[#dae2fd] border-[#464554]"
+              }
+            `}
           >
-            {Icon && <Icon className="size-3.5" />}
-
-            <span>{amenity}</span>
-          </div>
+            {amenity}
+          </button>
         );
       })}
     </div>

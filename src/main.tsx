@@ -1,20 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import { App } from "./App.tsx";
-import { store } from "./api/store.ts";
-import { Provider } from "react-redux";
-
-  import { ToastContainer } from 'react-toastify';
-import { AuthProvider } from "./context/AuthContext.tsx";
+import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Provider store={store}>
-      <AuthProvider>
-         <ToastContainer />
-      <App />
-      </AuthProvider>
-    </Provider>
+    <App />
   </StrictMode>,
 );
