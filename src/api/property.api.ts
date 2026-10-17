@@ -2,7 +2,7 @@ import type { Response } from "./api.type";
 import { api } from "./base";
 
 const propertyApi = api.injectEndpoints({
-  endpoints: ({ mutation,query}) => ({
+  endpoints: ({ mutation, query }) => ({
     createProperty: mutation<any, any>({
       query: (body) => ({
         url: "/property",
@@ -12,35 +12,52 @@ const propertyApi = api.injectEndpoints({
       invalidatesTags: ["Property"],
     }),
 
-      getProperties:query<any,any>({
+    getProperties: query<any, any>({
       query: (params) => ({
         url: "/property",
         method: "GET",
         params,
       }),
-      providesTags:['Property']
+      providesTags: ["Property"],
     }),
 
-     getProperty:query<any,any>({
-      query: (id:string) => ({
+    getProperty: query<any, any>({
+      query: (id: string) => ({
         url: `/property/${id}`,
         method: "GET",
         id,
       }),
-      providesTags:['Property']
+      providesTags: ["Property"],
     }),
-  
-    deleteProperty:mutation<Response,string>({
-      query:(id:string)=>({
-        url:`/property/${id}`,
-        method:'DELETE',
-        id
 
+    getPropertyStats:query<{
+        total: number;
+        rented: number;
+        sold: number;
+        pending:number
+      },void>({
+      query: () => ({
+        url: "/property/stats",
+        method: "GET",
       }),
-      invalidatesTags:['Property']
+      providesTags: ["Property"],
+    }),
 
-    })
+    deleteProperty: mutation<Response, string>({
+      query: (id: string) => ({
+        url: `/property/${id}`,
+        method: "DELETE",
+        id,
+      }),
+      invalidatesTags: ["Property"],
+    }),
   }),
 });
 
-export const { useCreatePropertyMutation ,useGetPropertiesQuery,useGetPropertyQuery,useDeletePropertyMutation} = propertyApi;
+export const {
+  useCreatePropertyMutation,
+  useGetPropertiesQuery,
+  useGetPropertyQuery,
+  useGetPropertyStatsQuery,
+  useDeletePropertyMutation,
+} = propertyApi;

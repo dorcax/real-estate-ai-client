@@ -68,7 +68,7 @@ export const columns = columnHelper.columns([
         <img
           src={mainImage?.url}
           alt={row.original.title}
-          className="w-20 rounded-md object-cover  transition-transform
+          className="w-20 h-20 rounded-md object-cover  transition-transform
       duration-300
       hover:scale-110"
         />

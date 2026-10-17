@@ -29,11 +29,15 @@ import {
 interface DataTableProps<TData extends RowData> {
   columns: ColumnDef<DataTableFeatures, TData>[];
   data: TData[];
+  search: string;
+  setSearch: (value: string) => void;
 }
 
 export function DataTable<TData extends RowData>({
   columns,
   data,
+  search,
+  setSearch,
 }: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -60,10 +64,12 @@ export function DataTable<TData extends RowData>({
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
+          // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          // onChange={(event) =>
+          //   table.getColumn("email")?.setFilterValue(event.target.value)
+          // }
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
           className="max-w-sm  border-b border-[#464554]"
         />
         {/* cloumns visibility */}
