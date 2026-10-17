@@ -2,7 +2,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { usePopUpContext } from "@/context/PopUpContext";
 import { ChevronRight, Search, Plus, Bell } from "lucide-react";
 
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CreateProperty from "../property/CreateProperty";
 
 const AppHeader = () => {
@@ -56,11 +56,14 @@ const AppHeader = () => {
           </button>
           <button
             className="bg-[#c0c1ff] text-[#1000A9] p-2 sm:px-4 sm:py-2 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-lg shadow-primary/20 hover:bg-[#222a3d]  hover:text-[#dae2fd] transition-all"
-            onClick={() => openDialog(() => <CreateProperty />)}
+            // onClick={() => openDialog(() => <CreateProperty />)}
           >
             <Plus size={16} />
 
-            <span className="hidden sm:inline">Create New Property</span>
+            <Link to="/dashboard/create-property">
+           
+              <span className="hidden sm:inline">Create New Property</span>
+            </Link>
           </button>
         </div>
       </div>

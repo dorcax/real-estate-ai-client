@@ -1,18 +1,23 @@
 import { Download, Images } from "lucide-react";
 import { Button } from "../ui/button";
-import { type Property } from "@/types";
+
 type Props = {
-  property: Property;
+  images:{
+    id:string
+    order:number,
+    url:string
+  }[];
 };
 
-const PropertyGallery = ({ property }: Props) => {
-  const mainImage = property.images.find((image) => image.order === 1);
+const PropertyGallery = ({ images }: Props) => {
+  const mainImage =images.find((att) => att.order === 1);
+  console.log('viewing images',mainImage)
 
-  const smallerImages = property.images.filter(
+  const smallerImages = images.filter(
     (image) => image.order >= 2 && image.order <= 5,
   );
 
-  const remainingImages = property.images.filter(
+  const remainingImages = images.filter(
     (image) => image.order > 5,
   ).length;
 
@@ -69,7 +74,7 @@ const PropertyGallery = ({ property }: Props) => {
       >
         <div className="flex gap-2 items-center text-xs">
           <Images className="size-4" />
-          {property.images.length} photos · First photo is cover
+          {images.length} photos · First photo is cover
         </div>
 
         <Button

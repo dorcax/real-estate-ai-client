@@ -39,7 +39,7 @@ const PropertyActions = ({ property }: { property: any }) => {
 
 
         <DropdownMenuItem >
-          <Link to={`/dashboard/view-property/${property.id}`}>View </Link>
+          <Link to={`/dashboard/view-property/${property.id}`} state={{ property }}>View </Link>
         </DropdownMenuItem>
         <DropdownMenuItem  onClick={()=>openDialog(()=>(<EditProperty property={property}/>))}>
           Edit

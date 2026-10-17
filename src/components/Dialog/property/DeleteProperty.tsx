@@ -1,11 +1,12 @@
+import { useDeletePropertyMutation } from "@/api/property.api";
 import CustomInfoDialog from "@/common/CustomInfoDialog";
 import { Button } from "@/components/ui/button";
 import { usePopUpContext } from "@/context/PopUpContext";
-import { useState } from "react";
+import { toast } from "react-toastify";
 
 type DeletePropertyProps = {
   row: {
-    id: number;
+    id: string;
     title: string;
   };
 };
@@ -13,24 +14,18 @@ type DeletePropertyProps = {
 const DeleteProperty = ({ row }: DeletePropertyProps) => {
   const { closeDialog } = usePopUpContext();
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  const [deleteProperty, { isLoading:loading }] = useDeletePropertyMutation();
 
-  const onDelete = async () => {
-    try {
-      setLoading(true);
-
-      // later:
-      // await deleteProperty(row.id);
-
-      console.log("Deleting property:", row.id);
-
-      closeDialog();
-    } catch (error) {
-      console.log("Delete property error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const handleDelete = async (id: string) => {
+  try {
+    await deleteProperty(id).unwrap();
+    toast.success("Property deleted successfully");
+    closeDialog()
+  } catch (error) {
+    toast.error("Failed to delete property");
+  }
+};
 
   return (
     <CustomInfoDialog className="capitalize sm:max-w-sm">
@@ -64,7 +59,7 @@ const DeleteProperty = ({ row }: DeletePropertyProps) => {
           <Button
             type="button"
             className="w-24 bg-red-700 text-white hover:bg-red-800"
-            onClick={onDelete}
+            onClick={()=>handleDelete(row.id)}
             disabled={loading}
           >
             {loading ? "Deleting..." : "Delete"}

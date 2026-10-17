@@ -2,8 +2,9 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { features } from "../table/data-table-feature";
 import { Checkbox } from "../ui/checkbox";
 import PropertyActions from "./PropertyAction";
+import { Upload } from "lucide-react";
 
-export type PropertyImage = {
+export type Upload = {
   id: number;
   url: string;
   order: number;
@@ -28,8 +29,9 @@ export type Property = {
   type: "APARTMENT" | "HOUSE" | "LAND" | "OFFICE" | "SHOP";
   parkingSpace: number;
   landSize: number;
-
-  images: PropertyImage[];
+  attachment: {
+    uploads: Upload[];
+  };
 };
 
 const columnHelper = createColumnHelper<typeof features, Property>();
@@ -55,16 +57,18 @@ export const columns = columnHelper.columns([
     enableHiding: false,
   },
 
-  columnHelper.accessor("images", {
+  columnHelper.accessor("attachment", {
     header: "Image",
     cell: ({ row }) => {
-      const mainImage = row.original.images.find((image) => image.order === 1);
-
+      const mainImage = row.original.attachment?.uploads?.find(
+        (image) => image.order === 1,
+      );
+      console.log("mainimage", row.original.attachment.uploads);
       return (
         <img
           src={mainImage?.url}
           alt={row.original.title}
-          className="w-24 rounded-md object-cover  transition-transform
+          className="w-20 rounded-md object-cover  transition-transform
       duration-300
       hover:scale-110"
         />
@@ -92,30 +96,6 @@ export const columns = columnHelper.columns([
       </div>
     ),
   }),
-
-  // columnHelper.display({
-  //   id: "actions",
-  //   header: "Action",
-  //   cell: ({ row }) => {
-  //     // const payment = row.original
-
-  //     return (
-  //       <DropdownMenu>
-  //         <DropdownMenuTrigger>...</DropdownMenuTrigger>
-
-  //         <DropdownMenuContent>
-  //           <DropdownMenuGroup>
-  //             <DropdownMenuItem className="text-xs">Edit</DropdownMenuItem>
-
-  //             <DropdownMenuItem className="text-xs" >View</DropdownMenuItem>
-
-  //             <DropdownMenuItem className="text-xs" >Delete </DropdownMenuItem>
-  //           </DropdownMenuGroup>
-  //         </DropdownMenuContent>
-  //       </DropdownMenu>
-  //     );
-  //   },
-  // }),
 
   columnHelper.display({
     id: "actions",
