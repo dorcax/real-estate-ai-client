@@ -31,6 +31,9 @@ interface DataTableProps<TData extends RowData> {
   data: TData[];
   search: string;
   setSearch: (value: string) => void;
+  page: number;
+  setPage: (page: number) => void;
+  totalPage: number;
 }
 
 export function DataTable<TData extends RowData>({
@@ -38,6 +41,9 @@ export function DataTable<TData extends RowData>({
   data,
   search,
   setSearch,
+  page,
+  setPage,
+  totalPage,
 }: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -161,19 +167,23 @@ export function DataTable<TData extends RowData>({
         </Table>
 
         <div className="flex items-center justify-end gap-2 p-3">
+          <span className="text-sm">
+            Page {page} of {totalPage}
+          </span>
+
           <Button
             className=" bg-[#c0c1ff] text-[#1000A9]"
             size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
+            onClick={() => setPage(page-1)}
+            disabled={page<=1}
           >
             Previous
           </Button>
           <Button
             className=" bg-[#c0c1ff] text-[#1000A9]"
             size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
+            onClick={() =>setPage(page-1)}
+            disabled={page >=totalPage}
           >
             Next
           </Button>

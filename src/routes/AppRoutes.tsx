@@ -19,6 +19,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoutes";
 import PropertyForm from "@/components/Dialog/property/PropertyForm";
 import CreateProperty from "@/components/property/CreateProperty";
+import EditProperty from "@/components/Dialog/property/EditProperty";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,11 @@ const router = createBrowserRouter([
         path: "create-property",
         element: <CreateProperty />,
       },
+      {
+        path: "edit-property/:id",
+        element: <EditProperty/>,
+      },
+
     ],
   },
 ]);

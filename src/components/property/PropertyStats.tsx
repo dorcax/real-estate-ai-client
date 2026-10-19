@@ -1,11 +1,13 @@
-
 import { useGetPropertyStatsQuery } from "@/api/property.api";
 
 const PropertyStats = () => {
-  const { data: propertyStats, isLoading, isError } =
-    useGetPropertyStatsQuery();
+  const {
+    data: propertyStats,
+    isLoading,
+    isError,
+  } = useGetPropertyStatsQuery();
 
-    console.log('propertystats',propertyStats)
+  console.log("propertystats", propertyStats);
   const stats = [
     {
       title: "Total Properties",
@@ -33,13 +35,7 @@ const PropertyStats = () => {
     return <p className="text-[#dae2fd]">Loading property statistics...</p>;
   }
 
-  // if (isError) {
-  //   return (
-  //     <p className="text-red-400">
-  //       Failed to load property statistics.
-  //     </p>
-  //   );
-  // }
+
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

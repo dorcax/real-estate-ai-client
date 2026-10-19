@@ -1,4 +1,5 @@
 // import type { PropertyFormValues } from "@/types";
+import { useLocation } from "react-router-dom";
 import PropertyForm from "./PropertyForm";
 // import type { Property } from "../da";
 
@@ -6,10 +7,13 @@ import PropertyForm from "./PropertyForm";
 //   property: PropertyFormValues;
 // };
 
-const EditProperty = ({ property }: any) => {
-  if (!property) {
-    return null;
-  }
+const EditProperty = () => {
+  const location =useLocation()
+  // if (!property) {
+  //   return null;
+  // }
+
+const property =location.state?.property
 
   const handleUpdate = (data: any) => {
     console.log("UPDATE PROPERTY", {
@@ -43,6 +47,7 @@ const EditProperty = ({ property }: any) => {
         bathrooms: property.bathrooms,
 
         toilets: property.toilets,
+        attachmentsId:property.attachments.uploads,
 
         parkingSpace: property.parkingSpace,
 

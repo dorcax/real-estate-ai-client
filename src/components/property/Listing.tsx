@@ -8,6 +8,7 @@ import Loader from "@/common/Loader";
 export default function Listing() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const[page,setPage] =useState(1)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -17,11 +18,16 @@ export default function Listing() {
     return () => clearTimeout(timeout);
   }, [search]);
 
+  useEffect(()=>{
+    setPage(1)
+  },[debouncedSearch])
+
   const { data: properties, isLoading } = useGetPropertiesQuery({
     search: debouncedSearch || undefined,
   });
 
-  const data: Property[] = properties?.data ?? [];
+  const data: Property[] = properties?.data ?? []; 
+  const totalPage =properties?.paginaton?.totalPage ?? 1
 
   if (isLoading) {
     return <Loader />;
@@ -33,6 +39,11 @@ export default function Listing() {
       data={data}
       search={search}
       setSearch={setSearch}
+      page={page}
+      setPage={setPage}
+      totalPage={totalPage}
+  
+
     />
   );
 }
