@@ -1,9 +1,11 @@
 
 
+import CreateInvitation from "@/components/Dialog/team/createInvitation"
 import { DataTable } from "@/components/table/data-table"
 import { columns } from "@/components/Team/data-columns"
 import { StatCard } from "@/components/Team/TeamStat"
 import { teamData, teamStats } from "@/constants/data"
+import { usePopUpContext } from "@/context/PopUpContext"
 import type { TeamMember } from "@/types"
 import {
     SlidersHorizontal,
@@ -16,6 +18,7 @@ import {
 
 export default function TeamPage() {
     const data:TeamMember[] =teamData
+    const {openDialog} =usePopUpContext()
   return (
     <main className="min-h-screen text-[#dae2fd]  p-6">
       {/* Header */}
@@ -30,7 +33,8 @@ export default function TeamPage() {
           </p>
         </div>
 
-        <button className="flex items-center gap-2 rounded-md bg-[#c0c1ff] text-[#1000A9]  px-5 py-3 text-sm font-medium  transition ">
+        <button className="flex items-center gap-2 rounded-md bg-[#c0c1ff] text-[#1000A9]  px-5 py-3 text-sm font-medium  transition "  onClick={()=>openDialog(()=>(<CreateInvitation/>))}
+         >
           <UserPlus size={16} />
           Invite Team Member
         </button>

@@ -119,12 +119,15 @@ import PropertyAmenities from "../../components/property/Amenities";
 import PropertyStatus from "../../components/property/Status";
 import { PropertyDetail } from "../../components/property/PropertyDetail";
 import PropertyAISection from "@/components/property/PropertyAiSection";
+import { useGetPropertyQuery } from "@/api/property.api";
 
 const ViewProperty = () => {
   const { id } = useParams();
   const location = useLocation();
 
-  const property = location.state?.property;
+  const {data}=useGetPropertyQuery({id, source: "dashboard"})
+
+  const property = location.state?.property ?? data?.property;
 
   if (!property || String(property.id) !== id) {
     return (

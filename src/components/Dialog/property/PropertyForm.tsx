@@ -1,5 +1,4 @@
-
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { usePropertyImages } from "../../../context/UploadContext";
@@ -32,8 +31,15 @@ import {
 
 // const labelStyle = "text-xs text-gray-900 font-medium";
 
+type ExistingImage = {
+  id: string;
+  url: string;
+  order?: number | null;
+};
+
 type PropertyFormProps = {
   mode: "create" | "edit";
+  existingImages: ExistingImage[];
 
   defaultValues?: Partial<PropertyFormValues>;
 
@@ -45,6 +51,7 @@ type PropertyFormProps = {
 const PropertyForm = ({
   mode,
   defaultValues,
+  existingImages=[],
   onSubmit,
   loading,
 }: PropertyFormProps) => {
@@ -60,7 +67,20 @@ const PropertyForm = ({
     },
   });
 
-  const { images, uploadImage, deleteImage, isUploading } = usePropertyImages();
+  const { images,setImages, uploadImage, deleteImage, isUploading } = usePropertyImages();
+
+
+   useEffect(() => {
+    if (mode === "edit") {
+      setImages(
+        existingImages
+          .slice()
+          .sort((a, b) => (a.order ?? 999) - (b.order ?? 999)),
+      );
+    } else {
+      setImages([]);
+    }
+  }, [mode, existingImages, setImages]);
 
   const handleImageUpload = async (
     event: React.ChangeEvent<HTMLInputElement>,

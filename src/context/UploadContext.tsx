@@ -20,6 +20,7 @@ type PropertyImage = {
 
 type PropertyImageContextType = {
   images: PropertyImage[];
+  setImages: Dispatch<SetStateAction<PropertyImage[]>>
   uploadImage: (file: File) => Promise<void>;
   deleteImage: (id: string) => Promise<void>;
   clearImages: () => void;
@@ -84,6 +85,7 @@ export const PropertyImageProvider = ({
     <PropertyImageContext.Provider
       value={{
         images,
+        setImages,
         uploadImage,
         deleteImage,
         clearImages,
@@ -105,4 +107,6 @@ export const usePropertyImages = () => {
   }
 
   return context;
+
+  
 };

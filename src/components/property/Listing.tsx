@@ -10,6 +10,7 @@ export default function Listing() {
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const[page,setPage] =useState(1)
 
+  const limit =5
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDebouncedSearch(search.trim());
@@ -24,10 +25,15 @@ export default function Listing() {
 
   const { data: properties, isLoading } = useGetPropertiesQuery({
     search: debouncedSearch || undefined,
+    limit,
+    page
   });
 
   const data: Property[] = properties?.data ?? []; 
-  const totalPage =properties?.paginaton?.totalPage ?? 1
+
+  const totalPage =properties?.pagination?.totalPage 
+    console.log('hello',{ page, limit, totalPage, data });
+
 
   if (isLoading) {
     return <Loader />;

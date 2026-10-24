@@ -22,9 +22,11 @@ const property =location.state?.property
     });
   };
 
+  console.log('ffff',property.attachment.uploads)
   return (
     <PropertyForm
       mode="edit"
+      existingImages={property.attachment?.uploads ?? []}
       defaultValues={{
         title: property.title,
 
@@ -47,7 +49,7 @@ const property =location.state?.property
         bathrooms: property.bathrooms,
 
         toilets: property.toilets,
-        attachmentsId:property.attachments.uploads,
+        attachmentsId:property.attachment?.uploads,
 
         parkingSpace: property.parkingSpace,
 

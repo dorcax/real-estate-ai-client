@@ -18,7 +18,7 @@ import {
 } from "../ui/table";
 import { features, type DataTableFeatures } from "./data-table-feature";
 import { Input } from "../ui/input";
-import { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -33,6 +33,7 @@ interface DataTableProps<TData extends RowData> {
   setSearch: (value: string) => void;
   page: number;
   setPage: (page: number) => void;
+  // setPage: Dispatch<SetStateAction<number>>;
   totalPage: number;
 }
 
@@ -70,10 +71,7 @@ export function DataTable<TData extends RowData>({
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter emails..."
-          // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          // onChange={(event) =>
-          //   table.getColumn("email")?.setFilterValue(event.target.value)
-          // }
+        
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           className="max-w-sm  border-b border-[#464554]"
@@ -172,18 +170,22 @@ export function DataTable<TData extends RowData>({
           </span>
 
           <Button
-            className=" bg-[#c0c1ff] text-[#1000A9]"
+            className=" bg-[#c0c1ff] text-white"
             size="sm"
             onClick={() => setPage(page-1)}
-            disabled={page<=1}
+            // onClick={() => setPage((prev: number) => Math.max(1, prev - 1))}
+            disabled={page <= 1}
           >
             Previous
           </Button>
           <Button
-            className=" bg-[#c0c1ff] text-[#1000A9]"
+            className=" bg-[#c0c1ff] text-white"
             size="sm"
-            onClick={() =>setPage(page-1)}
-            disabled={page >=totalPage}
+            onClick={() =>setPage(page+1)}
+            // onClick={() =>
+            //   setPage((prev: number) => Math.min(prev + 1, totalPage))
+            // }
+            disabled={page >= totalPage}
           >
             Next
           </Button>

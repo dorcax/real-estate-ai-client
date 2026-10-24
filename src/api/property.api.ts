@@ -21,11 +21,12 @@ const propertyApi = api.injectEndpoints({
       providesTags: ["Property"],
     }),
 
-    getProperty: query<any, any>({
-      query: (id: string) => ({
+    getProperty: query<any,{id:string,source:string}>({
+      query: ({id,source}) => ({
         url: `/property/${id}`,
         method: "GET",
         id,
+        params:source ?{source}:undefined 
       }),
       providesTags: ["Property"],
     }),
@@ -38,6 +39,20 @@ const propertyApi = api.injectEndpoints({
       },void>({
       query: () => ({
         url: "/property/stats",
+        method: "GET",
+      }),
+      providesTags: ["Property"],
+    }),
+
+    getPropertyPerformanceStats:query<{
+        views: number;
+        enquries: number;
+        reservations: number;
+        totalProperties:number;
+        totalAmount:number
+      },void>({
+      query: () => ({
+        url: `/property/stats/performance`,
         method: "GET",
       }),
       providesTags: ["Property"],
@@ -59,5 +74,6 @@ export const {
   useGetPropertiesQuery,
   useGetPropertyQuery,
   useGetPropertyStatsQuery,
+  useGetPropertyPerformanceStatsQuery,
   useDeletePropertyMutation,
 } = propertyApi;

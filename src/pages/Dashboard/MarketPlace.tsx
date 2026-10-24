@@ -9,51 +9,9 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import { properties, propertListing } from "@/constants/data";
 import { Link } from "react-router-dom";
+import { useGetPropertiesQuery, useGetPropertyPerformanceStatsQuery } from "@/api/property.api";
 
-const marketplaceStats = [
-  {
-    label: "Views",
-    value: "28",
-    description: "This week",
-    icon: Eye,
-    iconBg: "bg-(--surface-highest)",
-    // iconColor: "text-(--primary)",
-  },
-  {
-    label: "Inquiries",
-    value: "2",
-    description: "1 new",
-    icon: MessageSquare,
-    iconBg: "bg-(--surface-highest)",
-    // iconColor: "text-(--primary)",
-  },
-  {
-    label: "Reservations",
-    value: "1",
-    description: "1 active",
-    icon: CalendarDays,
-    iconBg: "bg-(--surface-highest)",
-    iconColor: "text-(--accent)",
-  },
-  {
-    label: "Deposits Earned",
-    value: "$49",
-    description: "This month",
-    icon: TrendingUp,
-    iconBg: "bg-(--surface-highest)",
-    iconColor: "text-(--success)",
-  },
-  {
-    label: "Live Listings",
-    value: "4",
-    description: "On marketplace",
-    icon: Building2,
-    iconBg: "bg-(--surface-highest)",
-    iconColor: "text-(--success)",
-  },
-];
 
 const inquiries = [
   {
@@ -78,6 +36,54 @@ const inquiries = [
 ];
 
 const Marketplace = () => {
+  const {data:properties} =useGetPropertiesQuery({})
+  const {data} =useGetPropertyPerformanceStatsQuery()
+  const propertyListing =properties?.data ??[]
+  // const propertyPerformance =data.d ?? []
+
+  
+const marketplaceStats = [
+  {
+    label: "Views",
+    value: data?.views ?? 0,
+    description: "This week",
+    icon: Eye,
+    iconBg: "bg-(--surface-highest)",
+    // iconColor: "text-(--primary)",
+  },
+  {
+    label: "Inquiries",
+    value: data?.enquries ?? 0,
+    description: "1 new",
+    icon: MessageSquare,
+    iconBg: "bg-(--surface-highest)",
+    // iconColor: "text-(--primary)",
+  },
+  {
+    label: "Reservations",
+    value: data?.reservations ?? 0 ,
+    description: "1 active",
+    icon: CalendarDays,
+    iconBg: "bg-(--surface-highest)",
+    iconColor: "text-(--accent)",
+  },
+  {
+    label: "Deposits Earned",
+    value: data?.totalAmount ?? 0,
+    description: "This month",
+    icon: TrendingUp,
+    iconBg: "bg-(--surface-highest)",
+    iconColor: "text-(--success)",
+  },
+  {
+    label: "Live Listings",
+    value: data?.totalProperties ??0,
+    description: "On marketplace",
+    icon: Building2,
+    iconBg: "bg-(--surface-highest)",
+    iconColor: "text-(--success)",
+  },
+];
   return (
     <section className="min-h-screen text-[#dae2fd] p-4  md:p-6">
       {/* Header */}
@@ -158,14 +164,14 @@ const Marketplace = () => {
              
             "
           >
-            {properties.length}
+            {propertyListing?.length}
           </span>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {propertListing.map((property) => {
-            const mainImage = property.images.find(
-              (image) => image.order === 1,
+          {propertyListing.map((property:any) => {
+            const mainImage = property.attachment.uploads.find(
+              (image:any) => image.order === 1,
             );
 
             return (
@@ -222,11 +228,11 @@ const Marketplace = () => {
                       }
                     `}
                   >
-                    {property.status}
+                    {property?.status}
                   </span>
 
                   {/* Featured */}
-                  {property.featured && (
+                  {property?.featured && (
                     <span
                       className="
                         absolute
@@ -256,7 +262,7 @@ const Marketplace = () => {
                       text-(--text-primary)
                     "
                   >
-                    {property.title}
+                    {property?.title}
                   </h3>
 
                   <div
@@ -271,7 +277,7 @@ const Marketplace = () => {
                   >
                     <MapPin className="size-3 shrink-0" />
 
-                    <span className="truncate">{property.location}</span>
+                    <span className="truncate">{property?.location}</span>
                   </div>
 
                   <div className="mt-3 flex items-center justify-between">
@@ -282,12 +288,12 @@ const Marketplace = () => {
                     
                       "
                     >
-                      {property.price}
+                      {property?.price}
 
-                      {property.billingPeriod && `/${property.billingPeriod}`}
+                      {property?.billingPeriod && `/${property?.billingPeriod}`}
                     </p>
 
-                    <Link to={`/dashboard/view-property/${property.id}`}>
+                    <Link to={`/dashboard/view-property/${property?.id}`}>
                       <ChevronRight
                         className="
                         size-4
