@@ -1,40 +1,73 @@
-
-
-import CreateInvitation from "@/components/Dialog/team/createInvitation"
-import { DataTable } from "@/components/table/data-table"
-import { columns } from "@/components/Team/data-columns"
-import { StatCard } from "@/components/Team/TeamStat"
-import { teamData, teamStats } from "@/constants/data"
-import { usePopUpContext } from "@/context/PopUpContext"
-import type { TeamMember } from "@/types"
-import {
-    SlidersHorizontal,
-    UserPlus
-} from "lucide-react"
-
-
-
-
+import { useGetStatisticsQuery } from "@/api/companyInvitation.api";
+import Loader from "@/common/Loader";
+import CreateInvitation from "@/components/Dialog/team/createInvitation";
+import { DataTable } from "@/components/table/data-table";
+import { columns } from "@/components/Team/data-columns";
+import { StatCard } from "@/components/Team/TeamStat";
+import { teamData} from "@/constants/data";
+import { usePopUpContext } from "@/context/PopUpContext";
+import type { TeamMember } from "@/types";
+import { Headphones, Mail, Shield, SlidersHorizontal, User, UserPlus } from "lucide-react";
 
 export default function TeamPage() {
-    const data:TeamMember[] =teamData
-    const {openDialog} =usePopUpContext()
+  const data: TeamMember[] = teamData;
+  const { openDialog } = usePopUpContext();
+  const { data:stats, isLoading, isError } = useGetStatisticsQuery();
+  console.log('stats',stats)
+ 
+ if (isLoading) return <Loader />;
+
+if (isError) return <p>Failed to load team statistics.</p>; 
+ const teamStats =[ 
+      {
+        id: 1,
+        title: "Total Members",
+        value: stats?.totalMember ?? 0,
+        icon: User,
+        badge: "+2 this month",
+      },
+      {
+        id: 2,
+        title: "Admins",
+        value: stats?.totalAdmin ?? 0,
+        icon: Shield,
+        badge: null,
+      },
+      {
+        id: 3,
+        title: "Agents",
+        value: stats?.totalAgent ?? 0,
+        icon: Headphones,
+        badge: null,
+      },
+      {
+        id: 4,
+        title: "Pending Invitations",
+        value: stats?.totalPendingInvitation  ?? 0,
+        icon: Mail,
+        badge: null,
+      },
+    ]
+
+
+
+
   return (
     <main className="min-h-screen text-[#dae2fd]  p-6">
       {/* Header */}
       <header className="mb-8 flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold">
-            Team
-          </h1>
+          <h1 className="text-2xl font-semibold">Team</h1>
 
           <p className="mt-1 text-sm">
             Manage your team members and their access levels.
           </p>
         </div>
 
-        <button className="flex items-center gap-2 rounded-md bg-[#c0c1ff] text-[#1000A9]  px-5 py-3 text-sm font-medium  transition "  onClick={()=>openDialog(()=>(<CreateInvitation/>))}
-         >
+        <button
+          className="flex items-center gap-2 rounded-md bg-[#c0c1ff] text-[#1000A9]  px-5 py-3 text-sm font-medium  transition "
+          onClick={() => openDialog(() => <CreateInvitation />)}
+        >
           <UserPlus size={16} />
           Invite Team Member
         </button>
@@ -42,7 +75,7 @@ export default function TeamPage() {
 
       {/* Stats */}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {teamStats.map((stat:any) => (
+        {teamStats.map((stat: any) => (
           <StatCard key={stat.id} stat={stat} />
         ))}
       </section>
@@ -62,10 +95,7 @@ export default function TeamPage() {
 
           <div className="mb-3 flex gap-3">
             <div className="flex items-center rounded-md border bg-[#c0c1ff] text-[#1000A9]  px-3">
-              <SlidersHorizontal
-                size={15}
-                className="mr-2 text-slate-500"
-              />
+              <SlidersHorizontal size={15} className="mr-2 text-slate-500" />
 
               <select className="h-10 bg-transparent text-sm outline-none">
                 <option>Role: All</option>
@@ -83,13 +113,12 @@ export default function TeamPage() {
           </div>
         </div>
 
-    <section className="mt-4">    {/* Table */}
-       <DataTable
-                   columns={columns}
-                   data={data}
-                 /></section>
+        <section className="mt-4">
+          {" "}
+          {/* Table */}
+          <DataTable columns={columns} data={data} />
+        </section>
       </section>
     </main>
-  )
+  );
 }
-

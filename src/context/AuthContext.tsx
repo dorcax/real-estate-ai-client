@@ -9,7 +9,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const token = useAppSelector((state: any) => state.auth.token);
 
-  const { data, isLoading, isFetching } = useGetUserQuery(
+  const { data, isLoading, isFetching ,error} = useGetUserQuery(
     token ? undefined : skipToken,
   );
 

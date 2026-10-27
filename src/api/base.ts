@@ -36,7 +36,8 @@ export const api = createApi({
     "Subscription",
     "Payment",
     "Notification",
-    "Upload"
+    "Upload",
+    'Company-Invitation'
   ],
 
   endpoints: () => ({}),

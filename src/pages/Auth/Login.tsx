@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { dashboardFor } from "@/constants/getDashboard";
 import { useAuth } from "@/context/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -21,11 +22,11 @@ const signInSchema = z.object({
 type LoginSchema = z.infer<typeof signInSchema>;
 
 const Login = () => {
-  const [signIn, { isLoading }] = useSignInMutation();
+  const [signIn, { isLoading:loading}] = useSignInMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const { user } = useAuth();
+  const { user,isLoading} = useAuth();
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const {
     register,
@@ -39,6 +40,20 @@ const Login = () => {
     },
   });
 
+  console.log('userrrrrauth',user)
+
+  useEffect(() => {
+    if (!shouldRedirect || isLoading || !user) return;
+
+    if (user.role === "OWNER" && !user.company?.id) {
+      navigate("/onboarding", { replace: true });
+
+      return;
+    }
+
+    navigate(dashboardFor(user.role), { replace: true });
+  }, [shouldRedirect, isLoading, user, navigate]);
+
   const onSubmit = async (data: LoginSchema) => {
     try {
       const res = await signIn(data).unwrap();
@@ -49,13 +64,16 @@ const Login = () => {
       dispatch(setAuth({ token: res.token }));
 
       toast.success(res.message);
+      setShouldRedirect(true)
 
-      if (res.role === "OWNER" && !user?.company?.id) {
-        navigate("/onboarding", { replace: true });
-        return;
-      }
-
-      navigate(dashboardFor(res.role), { replace: true });
+    // if (res.role === "OWNER" && !user?.company?.id ) {
+    //    navigate("/onboarding", { replace: true });
+    //   //  The user still needs to be fetched to check company details.
+    //   setShouldRedirect(true);
+    // } else {
+    //   navigate(dashboardFor(res.role), { replace: true });
+    // }
+    
     } catch (error: any) {
       console.error("LOGIN FAILED:", error);
       toast.error(error?.data?.message);
@@ -161,10 +179,10 @@ const Login = () => {
 
                 <Button
                   type="submit"
-                  disabled={isLoading}
+                  disabled={loading}
                   className="h-11 w-full bg-[#6366F1] font-medium text-white transition-colors hover:bg-[#818CF8] focus:ring-2 focus:ring-[#818CF8] focus:ring-offset-2 focus:ring-offset-[#0F172A] disabled:opacity-50"
                 >
-                  {isLoading ? <Loader /> : "Login"}
+                  {loading ? <Loader /> : "Login"}
                 </Button>
               </FieldGroup>
             </form>
