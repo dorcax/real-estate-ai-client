@@ -71,7 +71,6 @@ export function DataTable<TData extends RowData>({
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter emails..."
-        
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           className="max-w-sm  border-b border-[#464554]"
@@ -116,8 +115,8 @@ export function DataTable<TData extends RowData>({
               <TableRow
                 key={headerGroup.id}
                 className="   border-b border-[#464554]
-    hover:bg-[#222a3d]
-    hover:text-[#dae2fd]"
+                 hover:bg-[#222a3d]
+                 hover:text-[#dae2fd]"
               >
                 {headerGroup.headers.map((header) => (
                   <TableHead key={header.id} className="text-[#dae2fd]">
@@ -138,8 +137,7 @@ export function DataTable<TData extends RowData>({
                 <TableRow
                   key={row.id}
                   className="   border-b border-[#464554]
-    hover:bg-[#222a3d]
-    hover:text-[#dae2fd]"
+               hover:bg-[#222a3d] hover:text-[#dae2fd]"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="text-[#dae2fd]">
@@ -172,7 +170,7 @@ export function DataTable<TData extends RowData>({
           <Button
             className=" bg-[#c0c1ff] text-white"
             size="sm"
-            onClick={() => setPage(page-1)}
+            onClick={() => setPage(page - 1)}
             // onClick={() => setPage((prev: number) => Math.max(1, prev - 1))}
             disabled={page <= 1}
           >
@@ -181,7 +179,7 @@ export function DataTable<TData extends RowData>({
           <Button
             className=" bg-[#c0c1ff] text-white"
             size="sm"
-            onClick={() =>setPage(page+1)}
+            onClick={() => setPage(page + 1)}
             // onClick={() =>
             //   setPage((prev: number) => Math.min(prev + 1, totalPage))
             // }

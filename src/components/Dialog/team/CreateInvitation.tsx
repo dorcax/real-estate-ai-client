@@ -52,7 +52,7 @@ const CreateInvitation = () => {
     try {
       const res = await createCompanyInvitation(values).unwrap();
       console.log("invitation", res);
-      toast.success(res.data.message);
+      toast.success(res.message);
       closeDialog()
     } catch (error: any) {
       toast.error(error?.data?.message || 'failed to send an invitation');
