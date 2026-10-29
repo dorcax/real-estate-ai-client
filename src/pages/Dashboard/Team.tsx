@@ -1,56 +1,65 @@
-import { useGetStatisticsQuery } from "@/api/companyInvitation.api";
+import {
+  useGetStatisticsQuery,
+  useGetTeamMembersQuery,
+} from "@/api/companyInvitation.api";
 import Loader from "@/common/Loader";
 import CreateInvitation from "@/components/Dialog/team/createInvitation";
 import { DataTable } from "@/components/table/data-table";
 import { columns } from "@/components/Team/data-columns";
 import { StatCard } from "@/components/Team/TeamStat";
-import { teamData} from "@/constants/data";
+import { teamData } from "@/constants/data";
 import { usePopUpContext } from "@/context/PopUpContext";
 import type { TeamMember } from "@/types";
-import { Headphones, Mail, Shield, SlidersHorizontal, User, UserPlus } from "lucide-react";
+import {
+  Headphones,
+  Mail,
+  Shield,
+  SlidersHorizontal,
+  User,
+  UserPlus,
+} from "lucide-react";
 
 export default function TeamPage() {
-  const data: TeamMember[] = teamData;
+  // const data: TeamMember[] = teamData;
   const { openDialog } = usePopUpContext();
-  const { data:stats, isLoading, isError } = useGetStatisticsQuery();
-  console.log('stats',stats)
- 
- if (isLoading) return <Loader />;
+  const { data: stats, isLoading, isError } = useGetStatisticsQuery();
+  const { data: members } = useGetTeamMembersQuery();
+  const data = members ?? [];
+  console.log("stats", stats);
 
-if (isError) return <p>Failed to load team statistics.</p>; 
- const teamStats =[ 
-      {
-        id: 1,
-        title: "Total Members",
-        value: stats?.totalMember ?? 0,
-        icon: User,
-        badge: "+2 this month",
-      },
-      {
-        id: 2,
-        title: "Admins",
-        value: stats?.totalAdmin ?? 0,
-        icon: Shield,
-        badge: null,
-      },
-      {
-        id: 3,
-        title: "Agents",
-        value: stats?.totalAgent ?? 0,
-        icon: Headphones,
-        badge: null,
-      },
-      {
-        id: 4,
-        title: "Pending Invitations",
-        value: stats?.totalPendingInvitation  ?? 0,
-        icon: Mail,
-        badge: null,
-      },
-    ]
+  if (isLoading) return <Loader />;
 
-
-
+  if (isError) return <p>Failed to load team statistics.</p>;
+  const teamStats = [
+    {
+      id: 1,
+      title: "Total Members",
+      value: stats?.totalMember ?? 0,
+      icon: User,
+      badge: "+2 this month",
+    },
+    {
+      id: 2,
+      title: "Admins",
+      value: stats?.totalAdmin ?? 0,
+      icon: Shield,
+      badge: null,
+    },
+    {
+      id: 3,
+      title: "Agents",
+      value: stats?.totalAgent ?? 0,
+      icon: Headphones,
+      badge: null,
+    },
+    {
+      id: 4,
+      title: "Pending Invitations",
+      value: stats?.totalPendingInvitation ?? 0,
+      icon: Mail,
+      badge: null,
+    },
+  ];
 
   return (
     <main className="min-h-screen text-[#dae2fd]  p-6">

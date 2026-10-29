@@ -7,7 +7,15 @@ import {
   type RowData,
   type SortingState,
 } from "@tanstack/react-table";
+import { useState } from "react";
 import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Input } from "../ui/input";
 import {
   Table,
   TableBody,
@@ -17,14 +25,6 @@ import {
   TableRow,
 } from "../ui/table";
 import { features, type DataTableFeatures } from "./data-table-feature";
-import { Input } from "../ui/input";
-import { useState, type Dispatch, type SetStateAction } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
 
 interface DataTableProps<TData extends RowData> {
   columns: ColumnDef<DataTableFeatures, TData>[];
