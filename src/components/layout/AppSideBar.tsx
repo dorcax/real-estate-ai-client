@@ -65,7 +65,7 @@ navMain:[
   },
   {
     title: "Schedule",
-    url: "#",
+    url: "/dashboard/schedule",
     icon: IconCalendar,
   },
   {

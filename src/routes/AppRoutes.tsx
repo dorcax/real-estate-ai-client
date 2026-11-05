@@ -20,6 +20,7 @@ import { ProtectedRoute } from "./ProtectedRoutes";
 import PropertyForm from "@/components/Dialog/property/PropertyForm";
 import CreateProperty from "@/components/property/CreateProperty";
 import EditProperty from "@/components/Dialog/property/EditProperty";
+import Schedule from "@/pages/Dashboard/Schedule";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "Team",
         element: <TeamPage />,
+      },
+      {
+        path: "schedule",
+        element: <Schedule />,
       },
       {
         path: "create-property",

@@ -1,8 +1,9 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import { MapPin } from "lucide-react";
-import PropertyActions from "../property/PropertyAction";
+import CustomerDrawer from "../drawser/customer/customerDrawer";
 import { features } from "../table/data-table-feature";
 import { Checkbox } from "../ui/checkbox";
+import CustomerActions from "./CustomerAction";
 
 export type Customer = {
   name: string;
@@ -23,7 +24,7 @@ export type Customer = {
 };
 
 const columnHelper = createColumnHelper<typeof features, Customer>();
-//  const {openDialog } =usePopUpContext()
+
 export const columns = columnHelper.columns([
   {
     id: "select",
@@ -135,6 +136,6 @@ export const columns = columnHelper.columns([
 
     header: "Action",
 
-    cell: ({ row }) => <PropertyActions property={row.original} />,
+    cell: ({ row }) => (<CustomerActions row={row.original}/>)
   }),
 ]);
