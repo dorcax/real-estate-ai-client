@@ -26,7 +26,7 @@ export const customerCard = [
   },
 ];
 const CustomerList = () => {
-      const data: Customer[] = customers;
+  const data: Customer[] = customers;
   return (
     <main className="text-[#dae2fd] space-y-5">
       <header className="flex justify-between items-center ">
@@ -45,8 +45,10 @@ const CustomerList = () => {
         {customerCard.map((c) => {
           const Icon = c.icon;
           return (
-            <div className=" flex justify-between border bg-[#171f33]
-        border-[#464554] p-3 rounded-lg">
+            <div
+              className=" flex justify-between border bg-[#171f33]
+        border-[#464554] p-3 rounded-lg"
+            >
               <div className="mb-1">
                 <div className="mb-3 flex size-9 items-center justify-center rounded-lg bg-[#252e46]">
                   <Icon className="size-5" aria-hidden="true" />
@@ -61,10 +63,7 @@ const CustomerList = () => {
       </section>
       {/* table section  */}
       <section>
-          <DataTable
-              columns={columns}
-              data={data}
-            />
+        <DataTable columns={columns} data={data} />
       </section>
     </main>
   );

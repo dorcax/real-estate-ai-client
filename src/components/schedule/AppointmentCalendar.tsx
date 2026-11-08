@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ChevronDown, Search } from "lucide-react";
 type CalendarView = "Month" | "Week" | "Day";
 
 export function AppointmentCalendar() {
-  const [currentDate, setCurrentDate] = useState(new Date(2027, 2, 1));
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 2, 1));
 
   const [view, setView] = useState<CalendarView>("Month");
   const [search, setSearch] = useState("");
@@ -75,14 +75,14 @@ export function AppointmentCalendar() {
         <div className="flex items-center gap-3">
           <button
             onClick={previousMonth}
-            className="flex h-14 w-14 items-center justify-center rounded-xl border border-[#464554] bg-[#171f33] text-[#91a4d0] transition hover:bg-[#222c45]"
+            className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#464554] bg-[#171f33] text-[#91a4d0] transition hover:bg-[#222c45]"
           >
             <ChevronLeft size={25} />
           </button>
 
           <button
             onClick={nextMonth}
-            className="flex h-14 w-14 items-center justify-center rounded-xl border border-[#464554] bg-[#171f33] text-[#91a4d0] transition hover:bg-[#222c45]"
+            className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#464554] bg-[#171f33] text-[#91a4d0] transition hover:bg-[#222c45]"
           >
             <ChevronRight size={25} />
           </button>
@@ -93,7 +93,7 @@ export function AppointmentCalendar() {
 
           <button
             onClick={goToToday}
-            className="rounded-xl border border-[#464554] bg-[#171f33] px-5 py-3 text-base font-semibold text-[#dae2fd] transition hover:bg-[#222c45]"
+            className="rounded-xl border border-[#464554] bg-[#171f33] px-5 py-2 text-base font-semibold text-[#dae2fd] transition hover:bg-[#222c45]"
           >
             Today
           </button>
@@ -105,7 +105,7 @@ export function AppointmentCalendar() {
             <button
               key={item}
               onClick={() => setView(item)}
-              className={`rounded-xl px-5 py-3 text-base font-medium transition ${
+              className={`rounded-xl px-5 py-2 text-base font-medium transition ${
                 view === item
                   ? "bg-[#c0c1ff] text-[#020617]"
                   : "text-[#91a4d0] hover:text-[#dae2fd]"

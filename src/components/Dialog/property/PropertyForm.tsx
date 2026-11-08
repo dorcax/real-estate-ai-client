@@ -51,7 +51,7 @@ type PropertyFormProps = {
 const PropertyForm = ({
   mode,
   defaultValues,
-  existingImages=[],
+  existingImages = [],
   onSubmit,
   loading,
 }: PropertyFormProps) => {
@@ -67,10 +67,10 @@ const PropertyForm = ({
     },
   });
 
-  const { images,setImages, uploadImage, deleteImage, isUploading } = usePropertyImages();
+  const { images, setImages, uploadImage, deleteImage, isUploading } =
+    usePropertyImages();
 
-
-   useEffect(() => {
+  useEffect(() => {
     if (mode === "edit") {
       setImages(
         existingImages

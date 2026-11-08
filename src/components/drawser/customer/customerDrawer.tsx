@@ -3,24 +3,16 @@ import type { Customer } from "@/components/customer/data.colums";
 import { Button } from "@/components/ui/button";
 import { usePopUpContext } from "@/context/PopUpContext";
 import {
-  Calendar,
-  Clock,
-  Edit,
   Mail,
   MapPin,
-  MessageSquare,
-  MoreHorizontal,
   Phone,
-  Tag,
-  User,
-  UserCheck,
-  X,
+  X
 } from "lucide-react";
-import React, { useState } from "react";
-import { OverviewTab } from "./OverviewTab";
-import { EnquiriesTab } from "./EnquriesTab";
-import { AppointmentsTab } from "./AppointmentTab";
+import { useState } from "react";
 import { ActivityTab } from "./ActivityTab";
+import { AppointmentsTab } from "./AppointmentTab";
+import { EnquiriesTab } from "./EnquriesTab";
+import { OverviewTab } from "./OverviewTab";
 
 export type CustomerDrawerProps = {
   customer: Customer;

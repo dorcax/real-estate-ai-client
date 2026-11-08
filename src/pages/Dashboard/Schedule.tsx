@@ -1,6 +1,8 @@
 import { AppointmentCalendar} from "@/components/schedule/AppointmentCalendar";
+import { AppointmentForm } from "@/components/schedule/AppointmentForm";
 import AppointmentList from "@/components/schedule/AppointmentList";
 import { Button } from "@/components/ui/button";
+import { usePopUpContext } from "@/context/PopUpContext";
 import { Bell, Calendar, Check, Clock, MapPin } from "lucide-react";
 
 const data = [
@@ -39,6 +41,7 @@ const data = [
 ];
 
 const Schedule = () => {
+    const {openDrawer} =usePopUpContext()
   return (
     <main className="min-h-screen text-[#dae2fd]  p-4 space-y-6">
       <header className="flex justify-between items-center pb-2  ">
@@ -53,8 +56,9 @@ const Schedule = () => {
           <span className="w-10 h-10 rounded-md border  flex justify-center items-center bg-[#171f33]  border-[#464554] ">
             {" "}
             <Bell className="size-6 " />
+            
           </span>
-          <Button className=" bg-[#c0c1ff] text-[#1000A9]  px-5 py-3 text-sm font-medium  transition ">
+          <Button className=" bg-[#c0c1ff] text-[#1000A9]  px-5 py-3 text-sm font-medium  transition hover:bg-[#222a3d] hover:text-[#dae2fd]  " onClick={()=>openDrawer(()=><AppointmentForm/>)}>
             create Appointment{" "}
           </Button>
         </div>

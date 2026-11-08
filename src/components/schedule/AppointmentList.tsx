@@ -1,6 +1,8 @@
 
 import React from "react";
 import { MapPin, UserRound, Building2, MoreVertical } from "lucide-react";
+import { usePopUpContext } from "@/context/PopUpContext";
+import AppointmentView from "./AppointmentView";
 
 const data = [
   {
@@ -96,6 +98,7 @@ const data = [
 ];
 
 const AppointmentList = () => {
+  const {openDrawer} =usePopUpContext()
   return (
     <main className="w-full">
       <header className="my-5 flex items-center justify-between">
@@ -119,7 +122,8 @@ const AppointmentList = () => {
           <div
             key={item.id}
             className="flex items-baseline gap-4 rounded-xl border border-[#464554] bg-[#171f33] p-4 transition hover:border-[#77769b]"
-          >
+          
+          onClick={()=>openDrawer(()=><AppointmentView data={item}/>)}>
             {/* Date and Time */}
             <div className="flex w-20 shrink-0 flex-col justify-center border-r border-[#464554] pr-4">
               <p className="text-lg font-semibold text-[#c0c1ff]">
