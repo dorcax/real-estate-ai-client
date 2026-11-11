@@ -13,6 +13,8 @@ import {
     X,
 } from "lucide-react";
 import { Button } from "../ui/button";
+import { usePopUpContext } from "@/context/PopUpContext";
+import DeleteAppointment from "../Dialog/schedule/DeleteSchedule";
 
 interface AppointmentData {
   id: string;
@@ -41,6 +43,8 @@ const AppointmentView = ({
   onDelete,
   onEdit,
 }: AppointmentViewProps) => {
+
+    const{openDialog} =usePopUpContext()
 
   const formattedDate = new Date(
     `${data.date}T12:00:00`
@@ -198,7 +202,7 @@ const AppointmentView = ({
 
           <Button
             type="button"
-            onClick={() => onDelete?.(data.id)}
+            onClick={() => openDialog(()=><DeleteAppointment  data={item}/>)}
             className="h-10 gap-3 border border-[#a43d4b] bg-[#492735]/50 px-6 text-base font-semibold text-[#ff6969] hover:bg-[#492735]"
           >
             <Trash2 size={21} />

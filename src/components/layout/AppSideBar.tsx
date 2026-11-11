@@ -8,7 +8,8 @@ import {
   IconFolder,
   IconListDetails,
   IconUser,
-  IconUsers
+  IconUsers,
+  IconWorld
 } from "@tabler/icons-react";
 import * as React from "react";
 
@@ -83,38 +84,74 @@ navMain:[
     url: "#",
     icon: IconUser,
   },
+  {
+    title:'Website configuration',
+    icon:IconWorld,
+    items:[
+      {
+          title: "overview",
+          url: "/dashboard/website-overview",
+        },
+      {
+          title: "general information",
+          url: "/dashboard/general-information",
+        },
+        {
+          title: "Branding",
+          url: "/dashboard/website/branding",
+        },
+        {
+          title: "Homepage",
+          url: "/dashboard/website/homepage",
+        },
+        {
+          title: "Properties",
+          url: "/dashboard/website/properties",
+        },
+        {
+          title: "About Us",
+          url: "/dashboard/website/about",
+        },
+        {
+          title: "Contact",
+          url: "/dashboard/website/contact",
+        },
+        {
+          title: "SEO & Social",
+          url: "/dashboard/website/seo",
+        },
+    ]
+  }
 ],
 }
 
 
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}   className="bg-[#060E20] text-[#DAE2FD] [&_[data-sidebar=sidebar]]:bg-[#060E20]">
-      <SidebarHeader>
+    <Sidebar
+      collapsible="offcanvas"
+      {...props}
+      className="h-svh bg-[#060E20] text-[#DAE2FD] [&_[data-sidebar=sidebar]]:bg-[#060E20]"
+    >
+      <SidebarHeader className="shrink-0">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton className="data-[slot=sidebar-menu-button]:p-1.5!">
-              {/* <a href="#">
-                <IconInnerShadowTop className="size-5!" />
-                <span className="text-sm font-semibold">Estate Call</span>
-              </a> */}
               <div className="flex items-center gap-2">
-                {/* <IconInnerShadowTop className="h-6 w-6" /> */}
-
-                <House/>
-
+                <House />
                 <span className="font-medium text-sm">Estate Call</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent>
+
+      <SidebarContent className="!min-h-0 !flex-1 !overflow-y-auto !overflow-x-hidden">
         <NavMain items={data.navMain} />
-        {/* <NavDocuments items={data.documents} /> */}
-        {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
-      <SidebarFooter>
+
+      <SidebarFooter className="shrink-0">
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>

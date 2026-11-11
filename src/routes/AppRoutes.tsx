@@ -21,6 +21,8 @@ import PropertyForm from "@/components/Dialog/property/PropertyForm";
 import CreateProperty from "@/components/property/CreateProperty";
 import EditProperty from "@/components/Dialog/property/EditProperty";
 import Schedule from "@/pages/Dashboard/Schedule";
+import WebsiteOverview from "@/pages/WebsiteConfiguration/Dashbaord";
+import WebsiteGeneral from "@/pages/WebsiteConfiguration/GeneralInfornation";
 
 const router = createBrowserRouter([
   {
@@ -99,6 +101,15 @@ const router = createBrowserRouter([
         path: "edit-property/:id",
         element: <EditProperty/>,
       },
+      {
+        path: "website-overview",
+        element: <WebsiteOverview/>,
+      },
+      {
+        path: "general-information",
+        element: <WebsiteGeneral/>,
+      },
+    
 
     ],
   },
