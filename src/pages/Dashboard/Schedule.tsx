@@ -43,7 +43,7 @@ const data = [
 const Schedule = () => {
     const {openDrawer} =usePopUpContext()
   return (
-    <main className="min-h-screen text-[#dae2fd]  p-4 space-y-6">
+    <main className=" text-[#dae2fd]  p-4 space-y-6 h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden">
       <header className="flex justify-between items-center pb-2  ">
         <div>
           <h1 className="text-2xl font-semibold">Schedule</h1>

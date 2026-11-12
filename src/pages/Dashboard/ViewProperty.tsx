@@ -141,7 +141,7 @@ const ViewProperty = () => {
   const images = property.attachment?.uploads ?? [];
 
   return (
-    <section className="text-[#dae2fd] space-y-5">
+    <section className="text-[#dae2fd] space-y-5 h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden ">
       <PropertyGallery images={images} />
 
       <section className="grid grid-cols-4 gap-4 items-start">

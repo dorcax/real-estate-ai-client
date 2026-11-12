@@ -28,7 +28,7 @@ export const customerCard = [
 const CustomerList = () => {
   const data: Customer[] = customers;
   return (
-    <main className="text-[#dae2fd] space-y-5">
+    <main className="text-[#dae2fd] space-y-5 h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden ">
       <header className="flex justify-between items-center ">
         <div>
           <h1 className="text-xl font-semibold">Customers</h1>

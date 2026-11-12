@@ -97,7 +97,7 @@ const plans = [
 const Billing = () => {
   // const data: BillingHistory[] = billingInvoice;
   return (
-    <main className="min-h-screen text-[#dae2fd] space-y-6">
+    <main className="text-[#dae2fd] space-y-6 h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden ">
       {/* HEADER */}
       <header className="mb-7 flex items-start justify-between">
         <div>

@@ -85,7 +85,7 @@ const marketplaceStats = [
   },
 ];
   return (
-    <section className="min-h-screen text-[#dae2fd] p-4  md:p-6">
+    <section className="text-[#dae2fd] p-4  md:p-6 h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden ">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-semibold tracking-tight">Marketplace</h1>

@@ -112,13 +112,8 @@ const PropertyForm = ({
 
   return (
     <div
-      className="
-w-full
-
-max-h-125 
-overflow-y-auto 
-overflow 
-[&::-webkit-scrollbar]:hidden 
+      className="w-full
+h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden 
 "
     >
       <form

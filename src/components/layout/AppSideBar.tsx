@@ -85,43 +85,48 @@ navMain:[
     icon: IconUser,
   },
   {
-    title:'Website configuration',
-    icon:IconWorld,
-    items:[
-      {
-          title: "overview",
-          url: "/dashboard/website-overview",
-        },
-      {
-          title: "general information",
-          url: "/dashboard/general-information",
-        },
-        {
-          title: "Branding",
-          url: "/dashboard/website/branding",
-        },
-        {
-          title: "Homepage",
-          url: "/dashboard/website/homepage",
-        },
-        {
-          title: "Properties",
-          url: "/dashboard/website/properties",
-        },
-        {
-          title: "About Us",
-          url: "/dashboard/website/about",
-        },
-        {
-          title: "Contact",
-          url: "/dashboard/website/contact",
-        },
-        {
-          title: "SEO & Social",
-          url: "/dashboard/website/seo",
-        },
-    ]
-  }
+    title: "website",
+    url: "/dashboard/website",
+    icon: IconUser,
+  },
+  // {
+  //   title:'Website configuration',
+  //   icon:IconWorld,
+  //   items:[
+  //     {
+  //         title: "overview",
+  //         url: "/dashboard/website-overview",
+  //       },
+  //     {
+  //         title: "general information",
+  //         url: "/dashboard/general-information",
+  //       },
+  //       {
+  //         title: "Branding",
+  //         url: "/dashboard/website/branding",
+  //       },
+  //       {
+  //         title: "Homepage",
+  //         url: "/dashboard/website/homepage",
+  //       },
+  //       {
+  //         title: "Properties",
+  //         url: "/dashboard/website/properties",
+  //       },
+  //       {
+  //         title: "About Us",
+  //         url: "/dashboard/website/about",
+  //       },
+  //       {
+  //         title: "Contact",
+  //         url: "/dashboard/website/contact",
+  //       },
+  //       {
+  //         title: "SEO & Social",
+  //         url: "/dashboard/website/seo",
+  //       },
+  //   ]
+  // }
 ],
 }
 

@@ -23,6 +23,7 @@ import EditProperty from "@/components/Dialog/property/EditProperty";
 import Schedule from "@/pages/Dashboard/Schedule";
 import WebsiteOverview from "@/pages/WebsiteConfiguration/Dashbaord";
 import WebsiteGeneral from "@/pages/WebsiteConfiguration/GeneralInfornation";
+import Website from "@/pages/WebsiteConfiguration/Website";
 
 const router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "general-information",
         element: <WebsiteGeneral/>,
+      },
+      {
+        path: "website",
+        element: <Website/>,
       },
     
 

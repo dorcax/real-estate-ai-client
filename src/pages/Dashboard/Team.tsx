@@ -62,7 +62,7 @@ export default function TeamPage() {
   ];
 
   return (
-    <main className="min-h-screen text-[#dae2fd]  p-6">
+    <main className="text-[#dae2fd]  p-6 h-full min-w-0 flex-1 overflow-y-auto  [&::-webkit-scrollbar]:hidden">
       {/* Header */}
       <header className="mb-8 flex items-start justify-between">
         <div>
